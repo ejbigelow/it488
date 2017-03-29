@@ -14,7 +14,7 @@
  *
  */
 try {
-    $handler = new PDO('mysql:dbname=IT488;host=localhost','root','SFT.678');
+    $handler = new PDO('mysql:dbname=it488;host=localhost','root','Sft.678');
     $handler->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 }
