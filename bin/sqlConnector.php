@@ -25,12 +25,3 @@ catch(PDOException $e) {
     }
 }
 
-
-try {
-
-    include $include;
-}
-catch(exception $e) {
-    echo $e;
-}
-
