@@ -21,7 +21,7 @@ try {
 catch(PDOException $e) {
     echo "Something has gone wrong with your connection to the Database<br/>";
     if (isset($precheck)) {
-        echo "Please make sure your database is created with a database named 'IT488' with the correct credentials.";
+        echo "Please make sure your database is created with a database named 'it488' with the correct credentials.";
     }
 }
 
