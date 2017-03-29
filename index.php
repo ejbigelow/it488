@@ -9,3 +9,5 @@
 $precheck = 1;
 //object to manage sql connections
 include 'bin/sqlConnector.php';
+
+echo "<h1>Congratulations! Sequel and your configurations are setup correctly.</h1>";

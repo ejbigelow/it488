@@ -13,8 +13,9 @@
  *
  *
  */
+include 'config.php';
 try {
-    $handler = new PDO('mysql:dbname=it488;host=localhost','root','Sft.678');
+    $handler = new PDO('mysql:dbname=it488;host=localhost',$sqlUser,$sqlPassword);
     $handler->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 }
@@ -23,5 +24,6 @@ catch(PDOException $e) {
     if (isset($precheck)) {
         echo "Please make sure your database is created with a database named 'it488' with the correct credentials.";
     }
+    die('<br />Script execution terminated: NoSQL');
 }
 
