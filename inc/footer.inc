@@ -1,0 +1,2 @@
+</body>
+<p class="text-center">footer</p>

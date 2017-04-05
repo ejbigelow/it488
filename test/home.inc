@@ -1,0 +1,11 @@
+<?php/*
+    YOU MAY PLAY WITH THIS HTML TO TEST WITH BOOTSTRAP. THE TEMPLATE HERE CALLS ALL THE BOOTSTRAP FILES FROM THE WEB
+    LOCAL COPIES ARE KEPT TO UTILIZE THE IDE'S AUTOCOMPLETE FEATURE 'INTELLI-SENSE'.
+
+*/
+?>
+<div class="container">
+    <div class="well">
+        Bootstrap well
+    </div>
+</div>

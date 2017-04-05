@@ -5,9 +5,6 @@
  * Date: 3/29/17
  * Time: 11:54 AM
  */
-//May be deleted once the DB is setup properly
-$precheck = 1;
-//object to manage sql connections
-include 'bin/sqlConnector.php';
-
-echo "<h1>Congratulations! Sequel and your configurations are setup correctly.</h1>";
+include 'inc/header.inc';
+include 'test/home.inc';
+include 'inc/footer.inc';

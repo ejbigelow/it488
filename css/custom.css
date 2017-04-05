@@ -1,0 +1,40 @@
+/* CSS Document */
+
+body {
+  /**scalable background to fill available viewport**/
+  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-top: 2%;
+  padding-bottom: 4.5%;
+}
+body {
+  padding-top: 60px;
+  padding-bottom: 70px;
+}
+@media (max-width: 979px) {
+  body {
+    padding-top: 60px;
+    padding-bottom: 70px;
+  }
+}
+
+/*Default quote*/
+.hardquote::first-letter {
+  font-weight: 200;
+  float: left;
+  width: 1em;
+  font-size: 400%;
+  font-family: times, courier;
+  line-height: 98%;
+}
+.hardquote2::first-letter {
+  font-weight: 200;
+  float: left;
+  width: 1em;
+  font-size: 400%;
+  font-family: times;
+  line-height: 90%;
+}
