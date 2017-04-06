@@ -37,7 +37,6 @@
                 <a href="index.php?page=About">About</a></li>
                 <a href="index.php?page=privacy">Privacy</a></li>
                 <a href="index.php?page=services">Services</a></li>
-                <a href="index.php?page=prayers">Prayers</a></li>
                 <a href="index.php?page=events">Events</a></li>
                 <a href="index.php?page=help">Help</a></li>
             </ul>
