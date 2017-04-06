@@ -33,12 +33,12 @@
         <!-- Menu Items -->
         <div class="collapse navbar-collapse mainMenu">
             <ul class="nav navbar-nav">
-                <a href="index.php">Home</a></li>
-                <a href="index.php?page=About">About</a></li>
-                <a href="index.php?page=privacy">Privacy</a></li>
-                <a href="index.php?page=services">Services</a></li>
-                <a href="index.php?page=events">Events</a></li>
-                <a href="index.php?page=help">Help</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="index.php?page=About">About</a></li>
+                <li><a href="index.php?page=privacy">Privacy</a></li>
+                <li><a href="index.php?page=services">Services</a></li>
+                <li><a href="index.php?page=events">Events</a></li>
+                <li><a href="index.php?page=help">Help</a></li>
             </ul>
             <!-- This entire section will remain hidden during phase1 but will be accessible via URL and challenge -->
             <ul class="nav navbar-nav navbar-right">

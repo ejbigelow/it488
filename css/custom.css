@@ -1,4 +1,12 @@
 /* CSS Document */
+/*Default*/
+/*Valentines day*/
+                  /*
+$bgDefault      : pink;
+$bgHighlight    : #ff99dd;
+$colDefault     : #ffe6f7;
+$colHover       : #e60099;
+*/
 
 body {
   /**scalable background to fill available viewport**/
@@ -7,34 +15,15 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  padding-top: 2%;
-  padding-bottom: 4.5%;
-}
-body {
   padding-top: 60px;
   padding-bottom: 70px;
+
+}
+body {
 }
 @media (max-width: 979px) {
   body {
     padding-top: 60px;
     padding-bottom: 70px;
   }
-}
-
-/*Default quote*/
-.hardquote::first-letter {
-  font-weight: 200;
-  float: left;
-  width: 1em;
-  font-size: 400%;
-  font-family: times, courier;
-  line-height: 98%;
-}
-.hardquote2::first-letter {
-  font-weight: 200;
-  float: left;
-  width: 1em;
-  font-size: 400%;
-  font-family: times;
-  line-height: 90%;
 }
