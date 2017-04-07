@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+$page=$_GET['page'];
+?>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -6,7 +9,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title></title>
+    <title>ACME llc. Order form:
+        <?php
+        if ($page == null) {
+            echo " Home";
+        }
+        else {
+            echo " ". $page;
+        }
+
+        ?>
+         </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
@@ -36,8 +49,8 @@
                 <li><a href="index.php">Home</a></li>
                 <li><a href="index.php?page=About">About</a></li>
                 <li><a href="index.php?page=privacy">Privacy</a></li>
-                <li><a href="index.php?page=services">Services</a></li>
-                <li><a href="index.php?page=events">Events</a></li>
+                <li><a href="index.php?page=services">Catalogue</a></li>
+                <li><a href="index.php?page=events">Contact</a></li>
                 <li><a href="index.php?page=help">Help</a></li>
             </ul>
             <!-- This entire section will remain hidden during phase1 but will be accessible via URL and challenge -->

@@ -6,5 +6,5 @@
  * Time: 11:54 AM
  */
 include 'inc/header.inc';
-include 'test/home.inc';
+include 'inc/home.inc';
 include 'inc/footer.inc';
