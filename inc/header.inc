@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <?php
 if (isset($_GET['page'])) {
-$page=$_GET['page'];
+    $test = $_GET['page'];
+    sanitize($test, null);
 }
 ?>
 <html lang="en">

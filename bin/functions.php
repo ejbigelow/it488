@@ -7,19 +7,15 @@
  */
 
 /**
+ * Used to sanitize $_GET variables
  * @param $input text to be sanitized.
  * @param $call value to redirect the call.
  */
 function sanitize($input, $call) {
-    echo "sanitized ";
+    $newstr = filter_var($input, FILTER_SANITIZE_STRING);
+   $page =$newstr;
 
-    if ($call == NULL) {
-        echo "no calling page";
-    }
-    else {
-        echo "calling".$call;
-    }
-return $input;
+return $page;
 }
 
 /**

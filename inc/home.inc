@@ -2,7 +2,7 @@
     <div class="well">
         <?php
         if (isset($page)) {
-            echo $page;
+            echo sanitize($page, null);
         }
 
         else {
