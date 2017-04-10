@@ -1,2 +1,2 @@
 </body>
-<p class="text-center">footer</p>
+<p class="text-center">&copy;2017 ACME Industries llc.</p>
