@@ -4,7 +4,9 @@ if (isset($_GET['page'])) {
 $page=$_GET['page'];
 }
 /*Get all page includes*/
-include INC_ROOT . 'inc/modalLoaderUserReg.php'
+include INC_ROOT . 'inc/modalLoaderUserReg.php';
+include INC_ROOT . 'bin/highlink.php';
+
 
 ?>
 <html lang="en">
@@ -51,12 +53,12 @@ include INC_ROOT . 'inc/modalLoaderUserReg.php'
         <!-- Menu Items -->
         <div class="collapse navbar-collapse mainMenu">
             <ul class="nav navbar-nav">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="index.php?page=About">About</a></li>
-                <li><a href="index.php?page=privacy">Privacy</a></li>
-                <li><a href="index.php?page=services">Catalogue</a></li>
-                <li><a href="index.php?page=events">Contact</a></li>
-                <li><a href="index.php?page=help">Help</a></li>
+                <?php echo $home;?><a href="index.php">Home</a></li>
+                <?php echo $about;?><a href="index.php?page=About">About</a></li>
+                <?php echo $privacy;?><a href="index.php?page=privacy">Privacy</a></li>
+                <?php echo $services;?><a href="index.php?page=services">Services</a></li>
+                <?php echo $events; ?><a href="index.php?page=events">Events</a></li>
+                <?php echo $help; ?><a href="index.php?page=help">Help</a></li>
             </ul>
             <!-- This entire section will remain hidden during phase1 but will be accessible via URL and challenge -->
             <ul class="nav navbar-nav navbar-right">
