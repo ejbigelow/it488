@@ -56,7 +56,7 @@ include INC_ROOT . 'bin/highlink.php';
                 <?php echo $home;?><a href="index.php">Home</a></li>
                 <?php echo $about;?><a href="index.php?page=About">About</a></li>
                 <?php echo $privacy;?><a href="index.php?page=privacy">Privacy</a></li>
-                <?php echo $services;?><a href="index.php?page=services">Services</a></li>
+                <?php echo $catalogue;?><a href="index.php?page=catalogue">Catalogue</a></li>
                 <?php echo $events; ?><a href="index.php?page=events">Events</a></li>
                 <?php echo $help; ?><a href="index.php?page=help">Help</a></li>
             </ul>
