@@ -3,6 +3,8 @@
 if (isset($_GET['page'])) {
 $page=$_GET['page'];
 }
+/*Get all page includes*/
+include INC_ROOT . 'inc/modalLoaderUserReg.php'
 
 ?>
 <html lang="en">
@@ -67,7 +69,7 @@ $page=$_GET['page'];
                     </form>
                 </li>
                 <!--User Sign-up -->
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span><span class="hidden-sm"> Sign Up</span></a></li>
+                <li><a data-toggle="modal" href="#myModal"><span class="glyphicon glyphicon-user"></span><span class="hidden-sm"> Sign Up</span></a></li>
                 <!--User logon -->
                 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span><span class="hidden-sm">  Login</span></a></li>
             </ul>
