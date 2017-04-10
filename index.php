@@ -5,6 +5,8 @@
  * Date: 3/29/17
  * Time: 11:54 AM
  */
-include 'inc/header.inc';
-include 'inc/home.inc';
-include 'inc/footer.inc';
+define('INC_ROOT', dirname(__DIR__). '/it488/') ;
+
+include INC_ROOT . 'inc/header.inc';
+include INC_ROOT . 'inc/home.inc';
+include INC_ROOT . 'inc/footer.inc';
