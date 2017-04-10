@@ -3,11 +3,6 @@
 if (isset($_GET['page'])) {
 $page=$_GET['page'];
 }
-/*Get all page includes*/
-include INC_ROOT . 'inc/modalLoaderUserReg.php';
-include INC_ROOT . 'bin/highlink.php';
-
-
 ?>
 <html lang="en">
 <head>
@@ -39,6 +34,11 @@ include INC_ROOT . 'bin/highlink.php';
     </script>
 </head>
 <body>
+<?php
+/*Get all page includes*/
+include INC_ROOT . 'inc/modalLoaderUserReg.php';
+include INC_ROOT . 'bin/highlink.php';
+?>
 <div class="navbar navbar-default navbar-inverse navbar-fixed-top navbar-full">
     <div class="container-fluid">
         <!-- Logo -->

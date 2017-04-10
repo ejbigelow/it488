@@ -7,7 +7,7 @@
 
         else {
 
-            $precheck = 1;
+       //     $precheck = 1;
 //object to manage sql connections
             include 'bin/sqlConnector.php';
 

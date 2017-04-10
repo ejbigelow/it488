@@ -27,7 +27,6 @@ if (isset($_GET['page'])) {
             $contact = "<li>";
             $privacy = "<li>";
             $catalogue = "<li>";
-            $prayers = "<li>";
             $events = "<li>";
             $help="<li>";
             break;
@@ -37,7 +36,6 @@ if (isset($_GET['page'])) {
             $contact = "<li class=\"active\">";
             $privacy = "<li>";
             $catalogue = "<li>";
-            $prayers = "<li>";
             $events = "<li>";
             $help="<li>";
             break;
@@ -47,7 +45,6 @@ if (isset($_GET['page'])) {
             $contact = "<li>";
             $privacy="<li class=\"active\">";
             $catalogue = "<li>";
-            $prayers = "<li>";
             $events = "<li>";
             $help="<li>";
             break;
@@ -57,7 +54,6 @@ if (isset($_GET['page'])) {
             $contact = "<li>";
             $privacy="<li>";
             $catalogue="<li class=\"active\">";
-            $prayers = "<li>";
             $events = "<li>";
             $help="<li>";
             break;
@@ -67,7 +63,6 @@ if (isset($_GET['page'])) {
             $contact = "<li>";
             $privacy="<li>";
             $catalogue = "<li>";
-            $prayers="<li class=\"active\">";
             $events = "<li>";
             $help="<li>";
             break;
@@ -77,7 +72,6 @@ if (isset($_GET['page'])) {
             $contact = "<li>";
             $privacy = "<li>";
             $catalogue = "<li>";
-            $prayers = "<li>";
             $events="<li class=\"active\">";
             $help="<li>";
             break;
@@ -87,7 +81,6 @@ if (isset($_GET['page'])) {
             $contact = "<li>";
             $privacy = "<li>";
             $catalogue = "<li>";
-            $prayers = "<li>";
             $events="<li>";
             $help="<li class=\"active\">";
 
@@ -99,7 +92,6 @@ if (isset($_GET['page'])) {
             $contact = "<li>";
             $privacy = "<li>";
             $catalogue = "<li>";
-            $prayers = "<li>";
             $events = "<li>";
             $help="<li>";
     }
@@ -110,7 +102,6 @@ else {
     $contact = "<li>";
     $privacy = "<li>";
     $catalogue = "<li>";
-    $prayers = "<li>";
     $events = "<li>";
     $help="<li>";
 }
