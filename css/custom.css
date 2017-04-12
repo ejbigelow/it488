@@ -1,0 +1,28 @@
+/* CSS Document */
+/*Default*/
+/*Valentines day*/
+                  /*
+$bgDefault      : pink;
+$bgHighlight    : #ff99dd;
+$colDefault     : #ffe6f7;
+$colHover       : #e60099;
+*/
+
+body {
+  /**scalable background to fill available viewport**/
+  height: 100%;
+  color: #080808;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-top: 60px;
+  padding-bottom: 70px;
+
+}
+@media (max-width: 979px) {
+  body {
+    padding-top: 60px;
+    padding-bottom: 70px;
+  }
+}

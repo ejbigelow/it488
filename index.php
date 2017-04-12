@@ -5,9 +5,9 @@
  * Date: 3/29/17
  * Time: 11:54 AM
  */
-//May be deleted once the DB is setup properly
-$precheck = 1;
-//object to manage sql connections
-include 'bin/sqlConnector.php';
+define('INC_ROOT', dirname(__DIR__). '/it488/') ;
+include INC_ROOT . 'bin/functions.php';
 
-echo "<h1>Congratulations! Sequel and your configurations are setup correctly.</h1>";
+include INC_ROOT . 'inc/header.inc';
+include INC_ROOT . 'inc/home.inc';
+include INC_ROOT . 'inc/footer.inc';
