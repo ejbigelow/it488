@@ -17,7 +17,9 @@
         <h4 class="modal-title">Please Register</h4>
       </div>
       <div class="modal-body">
-        <p>HTML form is inserted here</p>
+        <?php
+       include INC_ROOT . 'inc/registration.php';
+        ?>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
