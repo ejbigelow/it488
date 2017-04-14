@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <?php
 if (isset($_GET['page'])) {
-$page=$_GET['page'];
+    $test = $_GET['page'];
+    sanitize($test, null);
 }
-
 ?>
 <html lang="en">
 <head>
@@ -35,6 +35,11 @@ $page=$_GET['page'];
     </script>
 </head>
 <body>
+<?php
+/*Get all page includes*/
+include INC_ROOT . 'inc/modalLoaderUserReg.php';
+include INC_ROOT . 'bin/highlink.php';
+?>
 <div class="navbar navbar-default navbar-inverse navbar-fixed-top navbar-full">
     <div class="container-fluid">
         <!-- Logo -->
@@ -49,12 +54,12 @@ $page=$_GET['page'];
         <!-- Menu Items -->
         <div class="collapse navbar-collapse mainMenu">
             <ul class="nav navbar-nav">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="index.php?page=About">About</a></li>
-                <li><a href="index.php?page=privacy">Privacy</a></li>
-                <li><a href="index.php?page=services">Catalogue</a></li>
-                <li><a href="index.php?page=events">Contact</a></li>
-                <li><a href="index.php?page=help">Help</a></li>
+                <?php echo $home;?><a href="index.php">Home</a></li>
+                <?php echo $about;?><a href="index.php?page=About">About</a></li>
+                <?php echo $privacy;?><a href="index.php?page=privacy">Privacy</a></li>
+                <?php echo $catalogue;?><a href="index.php?page=catalogue">Catalogue</a></li>
+                <?php echo $events; ?><a href="index.php?page=events">Events</a></li>
+                <?php echo $help; ?><a href="index.php?page=help">Help</a></li>
             </ul>
             <!-- This entire section will remain hidden during phase1 but will be accessible via URL and challenge -->
             <ul class="nav navbar-nav navbar-right">
@@ -67,7 +72,7 @@ $page=$_GET['page'];
                     </form>
                 </li>
                 <!--User Sign-up -->
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span><span class="hidden-sm"> Sign Up</span></a></li>
+                <li><a data-toggle="modal" href="#myModal"><span class="glyphicon glyphicon-user"></span><span class="hidden-sm"> Sign Up</span></a></li>
                 <!--User logon -->
                 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span><span class="hidden-sm">  Login</span></a></li>
             </ul>

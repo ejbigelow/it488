@@ -2,12 +2,12 @@
     <div class="well">
         <?php
         if (isset($page)) {
-            echo $page;
+            echo sanitize($page, null);
         }
 
         else {
 
-            $precheck = 1;
+       //     $precheck = 1;
 //object to manage sql connections
             include 'bin/sqlConnector.php';
 
