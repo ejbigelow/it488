@@ -6,39 +6,28 @@
  * Time: 1:40 PM
  */
 ?>
-<div class="row">
-                                <div class ="col-md-12">
-                                    <form class="form" role="form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" accept-charset="UTF-8" id="login-nav">
-                                        <input type="hidden" name="logon" />
+<form class="form" role="form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" accept-charset="UTF-8" id="login-nav">
+    <input type="hidden" name="logon" />
+<div class="my-login-form">
+    <!-- Username -->
+    <legend>Sign In</legend>
+    <div class="input-group" >
+        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Username or email" />
+    </div>
+    <!-- Password-->
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-log-in"></i></span>
+        <input type="password" class="form-control" id="password" name="Password" placeholder="Password" />
+    </div>
+    <div class="text-right">
+        <!-- Button submit-->
+        <button class="btn btn-success">Login</button>
+        <!-- Button reset -->
+        <button class="btn btn-primary">Reset</button>
+    </div>
 
-                                        <div class="form-group">
+</div>
 
-                                            <label class="sr-only" for="email">Email address</label>
-                                            <input class="form-control" id="email" placeholder="Username or email" />
-                                        </div>
-
-                                        <div class="form-group">
-
-                                            <label class="sr-only" for="password">Password</label>
-                                            <input type="password" class="form-control" id="password" placeholder="Password" />
-                                            <div class="help-block text-right"><a href="">Forget the password ?</a></div>
-
-                                        </div>
-                                        <div class="form-group">
-
-                                            <button type="submit" class="btn btn-success btn-block">Sign in</button>
-
-                                        </div>
-                                        <div class="form-group">
-
-                                            <button type="Reset" class="btn btn-danger btn-block">reset</button>
-                                        </div>
-
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> Remember me
-</label>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+</div>
+    </form>

@@ -40,7 +40,7 @@
 
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6">
-            <label for="state" class="control-label">State</label>
+            <label for="state" class="control-label">State:</label>
             <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
             <input type ="text" class="form-control" id="state" placeholder="state"/>

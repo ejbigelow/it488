@@ -26,9 +26,12 @@ body {
     padding-bottom: 70px;
   }
 }
-label, input, button {
-  padding-top: 5px;
+
+
+.input-group {
+  padding-top: 8px;
 }
-#lname {
-  padding-top: 5px;
+.my-login-form {
+  width: 200px;
+  padding: 4px;
 }
