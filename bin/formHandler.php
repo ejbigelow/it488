@@ -13,8 +13,9 @@ if (isset($_POST['registration']) || isset($_POST['logon'])) {
         $text = "You have successfully registered!";
     }
     elseif (isset($_POST['logon'])) {
-
-    }
+        $alert = 1;
+        $type ="alert-success text-success alert-dismissible";
+        $text = "Logon submitted!";    }
     else {
         $alert = 1;
         $type = "alert-danger text-danger";

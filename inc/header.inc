@@ -22,7 +22,7 @@ if (isset($_GET['page'])) {
         }
 
         ?>
-         </title>
+    </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
@@ -74,7 +74,49 @@ include INC_ROOT . 'bin/highlink.php';
                 <!--User Sign-up -->
                 <li><a data-toggle="modal" href="#myModal"><span class="glyphicon glyphicon-user"></span><span class="hidden-sm"> Sign Up</span></a></li>
                 <!--User logon -->
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span><span class="hidden-sm">  Login</span></a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span><span class="hidden-sm">  Login</span> <span class="caret"></span></a>
+                    <ul id="login-dp" class="dropdown-menu">
+                        <li>
+                            <div class="row">
+                                <div class ="col-md-12">
+                                    <form class="form" role="form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" accept-charset="UTF-8" id="login-nav">
+                                        <input type="hidden" name="logon" />
+
+                                        <div class="form-group">
+
+                                            <label class="sr-only" for="email">Email address</label>
+                                            <input class="form-control" id="email" placeholder="Username or email" />
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <label class="sr-only" for="password">Password</label>
+                                            <input type="password" class="form-control" id="password" placeholder="Password" />
+                                            <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+
+                                        </div>
+                                        <div class="form-group">
+
+                                            <button type="submit" class="btn btn-success btn-block">Sign in</button>
+
+                                        </div>
+                                        <div class="form-group">
+
+                                            <button type="Reset" class="btn btn-danger btn-block">reset</button>
+                                        </div>
+
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox"> Remember me
+                                            </label>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
             </ul>
             <!-- Stop hiding here -->
         </div>
