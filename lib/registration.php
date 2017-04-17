@@ -60,6 +60,8 @@
     <div class="text-right">
         <!-- Button submit-->
         <input type="submit" class="btn btn-success" name="submit"/>
+        <button type="reset" class="btn btn-primary">Reset</button>
+
 
     </div>
 </form>
