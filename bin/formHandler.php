@@ -5,7 +5,6 @@
  * Date: 4/17/17
  * Time: 12:21 PM
  */
-var_dump($_POST);
 if (isset($_POST['registration']) || isset($_POST['logon'])) {
     if (isset($_POST['registration'])) {
         $alert = 1;

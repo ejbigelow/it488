@@ -21,7 +21,7 @@ if (isset($_GET['page'])) {
     $page=$_GET['page'];
     switch($page) {
         /* Display About page */
-        case About:
+        case about:
             $home = "<li>";
             $about = "<li class=\"active\">";
             $contact = "<li>";
@@ -29,6 +29,7 @@ if (isset($_GET['page'])) {
             $catalogue = "<li>";
             $events = "<li>";
             $help="<li>";
+            $title = "About";
             break;
         case Contact:
             $home = "<li>";

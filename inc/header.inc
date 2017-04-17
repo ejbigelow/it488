@@ -2,7 +2,7 @@
 <?php
 if (isset($_GET['page'])) {
     $test = $_GET['page'];
-    sanitize($test, null);
+    $page = sanitize($test, null);
 }
 ?>
 <html lang="en">
@@ -18,7 +18,7 @@ if (isset($_GET['page'])) {
             echo " Home";
         }
         else {
-            echo " ". $page;
+            echo " ". sanitize($_GET['page'], null);
         }
 
         ?>
@@ -55,7 +55,7 @@ include INC_ROOT . 'bin/highlink.php';
         <div class="collapse navbar-collapse mainMenu">
             <ul class="nav navbar-nav">
                 <?php echo $home;?><a href="index.php">Home</a></li>
-                <?php echo $about;?><a href="index.php?page=About">About</a></li>
+                <?php echo $about;?><a href="index.php?page=about">About</a></li>
                 <?php echo $privacy;?><a href="index.php?page=privacy">Privacy</a></li>
                 <?php echo $catalogue;?><a href="index.php?page=catalogue">Catalogue</a></li>
                 <?php echo $events; ?><a href="index.php?page=events">Events</a></li>
