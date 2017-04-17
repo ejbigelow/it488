@@ -6,8 +6,12 @@
  * Time: 11:54 AM
  */
 define('INC_ROOT', dirname(__DIR__). '/it488/') ;
+//PHP
 include INC_ROOT . 'bin/functions.php';
+include INC_ROOT . 'bin/formHandler.php';
 
+
+//HTML
 include INC_ROOT . 'inc/header.inc';
 include INC_ROOT . 'inc/home.inc';
 include INC_ROOT . 'inc/footer.inc';
