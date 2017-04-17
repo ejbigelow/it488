@@ -9,7 +9,7 @@
     if (isset($alert)) {
         echo "<div class=\"alert ";
         echo $type;
-        echo "\"><h4>";
+        echo "\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><h4>";
         echo $text;
         echo "</h4></div>";
     }
