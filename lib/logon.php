@@ -24,7 +24,7 @@
         <!-- Button submit-->
         <button class="btn btn-success">Login</button>
         <!-- Button reset -->
-        <button class="btn btn-primary">Reset</button>
+        <button type="reset" class="btn btn-primary">Reset</button>
     </div>
 
 </div>
