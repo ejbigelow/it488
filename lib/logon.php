@@ -20,11 +20,16 @@
         <span class="input-group-addon"><i class="glyphicon glyphicon-log-in"></i></span>
         <input type="password" class="form-control" id="password" name="Password" placeholder="Password" />
     </div>
+        <a href="#" class="my-login-item">Having trouble?</a>
     <div class="text-right">
         <!-- Button submit-->
         <button class="btn btn-success">Login</button>
         <!-- Button reset -->
         <button type="reset" class="btn btn-primary">Reset</button>
+    </div>
+    <div>
+        <input type="checkbox" class="my-login-item" value="rememberMe" />  Remember Me
+
     </div>
 
 </div>

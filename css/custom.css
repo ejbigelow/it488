@@ -34,4 +34,8 @@ body {
 .my-login-form {
   width: 200px;
   padding: 4px;
+  padding-bottom: 2px;
+}
+.my-login-item {
+  padding-top: 8px;
 }
