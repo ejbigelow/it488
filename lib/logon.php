@@ -6,19 +6,20 @@
  * Time: 1:40 PM
  */
 ?>
-<form class="form" role="form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" accept-charset="UTF-8" id="login-nav">
+<form class="form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" accept-charset="UTF-8" id="login-nav">
     <input type="hidden" name="logon" />
 <div class="my-login-form">
+    <h4>Sign In</h4>
+    <hr />
     <!-- Username -->
-    <legend>Sign In</legend>
     <div class="input-group" >
         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-        <input type="text" class="form-control" id="username" name="username" placeholder="Username or email" />
+        <input type="text" class="form-control" id="usernameLogin" name="username" placeholder="Username or email" />
     </div>
     <!-- Password-->
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-log-in"></i></span>
-        <input type="password" class="form-control" id="password" name="Password" placeholder="Password" />
+        <input type="password" class="form-control" id="passwordLogin" name="Password" placeholder="Password" />
     </div>
         <a href="#" class="my-login-item">Having trouble?</a>
     <div class="text-right">
@@ -32,7 +33,6 @@
 
     </div>
 
-</div>
 
 </div>
     </form>
