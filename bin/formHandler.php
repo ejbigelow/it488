@@ -34,7 +34,6 @@ if (isset($_POST['registration']) || isset($_POST['logon'])) {
             $password = $password .$salt;
             $encryptedPassword = md5($password);
             $textPassword = "$encryptedPassword";
-            $sqlFail = 0;
             if (chkuser($username, $handler) == false) {
                 $sql = "INSERT INTO users (FirstName,LastName,username,Password,salt, email,address1,City,state, zipcode, joined)
 VALUES ('$fname', '$lname','$username','$textPassword','$salt','$email','$address1','$city','$state','$state', NOW())";

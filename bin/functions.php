@@ -37,7 +37,6 @@ function chkuser($user, $handler) {
     $query = $handler->query("SELECT * FROM users");
     while($r = $query->fetch()) {
         if ($r['username'] == $user) {
-            echo $r['username'];
             return true;
         }
         else {
@@ -50,7 +49,6 @@ function chkemail($email) {
     $query = $handler->query("SELECT * FROM users");
     while($r = $query->fetch()) {
         if ($r['email'] == $email) {
-            echo $r['email'];
             return true;
         }
         else {
