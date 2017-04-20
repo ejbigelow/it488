@@ -76,10 +76,19 @@ VALUES ('$fname', '$lname','$username','$textPassword','$salt','$email','$addres
 
         }
     } elseif (isset($_POST['logon'])) {
-        
-        $alert = 1;
-        $type = "alert-success text-success alert-dismissible";
-        $text = "Logon submitted!";
+        $username = sanitize($_POST['username'], null);
+        $password = $_POST['password'];
+        if (chkPassword($username,$password) == true) {
+            $alert = 1;
+            $type = "alert-success text-success alert-dismissible";
+            $text = "Logon submitted!";
+
+        }
+        else {
+            $alert = 1;
+            $type = "alert-danger text-danger alert-dismissible";
+            $text = "Invalid username or logon";
+        }
     } else {
         $alert = 1;
         $type = "alert-danger text-danger";
@@ -88,5 +97,4 @@ VALUES ('$fname', '$lname','$username','$textPassword','$salt','$email','$addres
 } else {
 }
 
-//header("location:../index.php");
 ?>

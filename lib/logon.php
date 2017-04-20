@@ -19,7 +19,7 @@
     <!-- Password-->
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-log-in"></i></span>
-        <input type="password" class="form-control" id="passwordLogin" name="Password" placeholder="Password" />
+        <input type="password" class="form-control" id="passwordLogin" name="password" placeholder="Password" />
     </div>
         <a href="#" class="my-login-item">Having trouble?</a>
     <div class="text-right">

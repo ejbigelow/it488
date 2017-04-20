@@ -56,3 +56,24 @@ function chkemail($email) {
         }
     }
 }
+function chkPassword($username, $password) {
+    include INC_ROOT . 'bin/sqlConnector.php';
+    $query = $handler->query("SELECT * FROM users WHERE username = '$username'");
+    while ($r = $query->fetch()) {
+        if ($r['username'] == $username) {
+            $dbpass = $r['Password'];
+            $dbsalt = $r['salt'];
+        }
+        $chkpass = $password . $dbsalt;
+        if (md5($chkpass) == $dbpass) {
+            return true;
+        }
+        else {
+            return false;
+        }
+
+
+    }
+
+
+}
