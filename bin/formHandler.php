@@ -13,6 +13,7 @@ if (isset($_POST['registration']) || isset($_POST['logon'])) {
         $fname = sanitize($_POST['fname'], null);
         $lname = sanitize($_POST['lname'], null);
         $username = sanitize($_POST['username'], null);
+        chkuser($username, $handler);
         $email = sanitize($_POST['email'], null);
         $address1 = sanitize($_POST['address1'], null);
         $city = sanitize($_POST['city'], null);
@@ -34,7 +35,7 @@ if (isset($_POST['registration']) || isset($_POST['logon'])) {
             $encryptedPassword = md5($password);
             $textPassword = "$encryptedPassword";
             $sqlFail = 0;
-            if ($sqlFail == 0) {
+            if (chkuser($username, $handler) == false) {
                 $sql = "INSERT INTO users (FirstName,LastName,username,Password,salt, email,address1,City,state, zipcode, joined)
 VALUES ('$fname', '$lname','$username','$textPassword','$salt','$email','$address1','$city','$state','$state', NOW())";
                 try {
@@ -50,16 +51,27 @@ VALUES ('$fname', '$lname','$username','$textPassword','$salt','$email','$addres
                     $text = $e->getMessage();
                 }
             }
-            elseif ($sqlFail = 1) {
-                $alert = 1;
-                $type = "alert-danger text-danger alert-dismissible";
-                $text = "Error: " . $errorType;
-                unset($sqlFail);
-            }
             else {
+                $errorNum = 1;
+                if (chkuser($username, $handler) == true) {
+                    $error1 = "username";
+                }
+                if (chkemail($email, $handler) == true) {
+                    $errorNum++;
+                    $error2 = "email";
+                }
                 $alert = 1;
                 $type = "alert-danger text-danger alert-dismissible";
-                $text = "Error: an unknown error occurred";
+                if ($errorNum == 1) {
+                    $text = "duplicate user found please use a different one!";
+                }
+                elseif($errorNum == 2) {
+                    $text = "duplicate email found please use a different one!";
+                }
+                else {
+                    $text = "duplicate values found please check all values and resubmit.";
+                }
+
             }
 
 
