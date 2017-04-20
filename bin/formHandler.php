@@ -87,7 +87,7 @@ VALUES ('$fname', '$lname','$username','$textPassword','$salt','$email','$addres
         else {
             $alert = 1;
             $type = "alert-danger text-danger alert-dismissible";
-            $text = "Invalid username or logon";
+            $text = "Invalid username or password";
         }
     } else {
         $alert = 1;
