@@ -26,9 +26,13 @@
                 $text = "Your passwords must match!";
             }
             else {
+                include INC_ROOT . 'bin/sqlConnector.php';
                 /* Encrypt password into database */
                 $encryptedPassword = md5($password);
-                $sql = "INSERT INTO users (UserID, FirstName, LastName,	username, Password, email) VALUES ('', {$fname},{$lname},{$username},{$encryptedPassword},{$email})";
+                $textPassword = "$encryptedPassword";
+                //$sql = "INSERT INTO users (FirstName,LastName,username,Password,email,address1,City,state, zipcode, joined) VALUES ( {$fname},{$lname},{$username},{$textPassword},{$email},{$address1},{$city},{$state},{$zip},NOW())";
+                $sql = "INSERT INTO users (FirstName,LastName,username,Password,email,address1,City,state, zipcode, joined) VALUES ('$fname', '$lname','$username','$password','$email','$address1','$city','$state','$state', NOW())";
+
                 try {
                     $handler->query($sql);
                     $alert = 1;
@@ -37,7 +41,9 @@
 
                 }
                 catch(PDOException $e) {
-                    echo $e->getMessage();
+                    $alert = 1;
+                    $type = "alert-danger text-danger alert-dismissible";
+                    $text = $e->getMessage();
                 }
             }
         } elseif (isset($_POST['logon'])) {
