@@ -76,6 +76,7 @@ VALUES ('$fname', '$lname','$username','$textPassword','$salt','$email','$addres
 
         }
     } elseif (isset($_POST['logon'])) {
+        
         $alert = 1;
         $type = "alert-success text-success alert-dismissible";
         $text = "Logon submitted!";
