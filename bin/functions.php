@@ -19,12 +19,40 @@ return $page;
 }
 
 /**
+ * Added security no params this function creates an alphanumeric(4) to add to existing password to increase security.
 */
-
+function salt() {
+    $char = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    $newsalt = substr(str_shuffle($char),0,4);
+    return $newsalt;
+}
 
 /**
+ * Function to verify that user doesn't exist otherwise determining unique users would fail
+ * $user = username to check
+ * $handler = sql connect string from formHandler
 */
-function getTitle($page){
-    $pretext = "Welcome to ACME: ";
-
+function chkuser($user, $handler) {
+    include INC_ROOT . 'bin/sqlConnector.php';
+    $query = $handler->query("SELECT * FROM users");
+    while($r = $query->fetch()) {
+        if ($r['username'] == $user) {
+            return true;
+        }
+        else {
+           return false;
+        }
+    }
+}
+function chkemail($email) {
+    include INC_ROOT . 'bin/sqlConnector.php';
+    $query = $handler->query("SELECT * FROM users");
+    while($r = $query->fetch()) {
+        if ($r['email'] == $email) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }
