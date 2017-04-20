@@ -18,7 +18,7 @@
       </div>
       <div class="modal-body">
         <?php
-       include INC_ROOT . 'inc/registration.php';
+       include INC_ROOT . 'lib/registration.php';
         ?>
       </div>
       <div class="modal-footer">

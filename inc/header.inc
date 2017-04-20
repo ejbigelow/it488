@@ -2,7 +2,7 @@
 <?php
 if (isset($_GET['page'])) {
     $test = $_GET['page'];
-    sanitize($test, null);
+    $page = sanitize($test, null);
 }
 ?>
 <html lang="en">
@@ -18,11 +18,11 @@ if (isset($_GET['page'])) {
             echo " Home";
         }
         else {
-            echo " ". $page;
+            echo " ". sanitize($_GET['page'], null);
         }
 
         ?>
-         </title>
+    </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
@@ -55,7 +55,7 @@ include INC_ROOT . 'bin/highlink.php';
         <div class="collapse navbar-collapse mainMenu">
             <ul class="nav navbar-nav">
                 <?php echo $home;?><a href="index.php">Home</a></li>
-                <?php echo $about;?><a href="index.php?page=About">About</a></li>
+                <?php echo $about;?><a href="index.php?page=about">About</a></li>
                 <?php echo $privacy;?><a href="index.php?page=privacy">Privacy</a></li>
                 <?php echo $catalogue;?><a href="index.php?page=catalogue">Catalogue</a></li>
                 <?php echo $events; ?><a href="index.php?page=events">Events</a></li>
@@ -74,7 +74,14 @@ include INC_ROOT . 'bin/highlink.php';
                 <!--User Sign-up -->
                 <li><a data-toggle="modal" href="#myModal"><span class="glyphicon glyphicon-user"></span><span class="hidden-sm"> Sign Up</span></a></li>
                 <!--User logon -->
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span><span class="hidden-sm">  Login</span></a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span><span class="hidden-sm">  Login</span> <span class="caret"></span></a>
+                    <ul id="login-dp" class="dropdown-menu">
+                        <li>
+                            <?php include INC_ROOT . "lib/logon.php" ?>
+                        </li>
+                    </ul>
+                </li>
             </ul>
             <!-- Stop hiding here -->
         </div>
