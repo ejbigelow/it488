@@ -26,9 +26,30 @@ body {
     padding-bottom: 70px;
   }
 }
-label, input, button {
-  padding-top: 5px;
+
+
+.input-group {
+  padding-top: 8px;
 }
-#lname {
-  padding-top: 5px;
+.my-login-form {
+  width: 200px;
+  padding: 4px;
+  padding-bottom: 2px;
+}
+.my-login-item {
+  padding-top: 8px;
+}
+/*http://freshome.com/2010/08/23/crazy-overgrown-household-items-from-robert-therrien/*/
+.block1 {
+  background-image: url("http://67.253.94.5/it488/img/household-1.jpg") ;
+
+}
+/*http://www.helloshoppee.com/*/
+.block2 {
+  background-image: url("http://67.253.94.5/it488/img/electronics-1.jpg");
+}
+/*https://blog.bedbathandbeyond.com/2016/04/7-items-give-patio-great-summer-style/*/
+.block3 {
+  background-image: url("http://67.253.94.5/it488/img/outdoor-1.jpg");
+
 }

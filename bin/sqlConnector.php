@@ -13,7 +13,7 @@
  *
  *
  */
-include 'config.php';
+include INC_ROOT . 'config.php';
 try {
     $handler = new PDO('mysql:dbname=it488;host=localhost',$sqlUser,$sqlPassword);
     $handler->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

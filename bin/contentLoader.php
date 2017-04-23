@@ -1,3 +1,12 @@
+<?php
+/**
+ * Created by IntelliJ IDEA.
+ * User: serrin
+ * Date: 4/17/17
+ * Time: 4:15 PM
+ * This file verifies and loads pages from the library home, about, catalogue, etc
+ */
+?>
 <div class="container">
     <?php
     /**
@@ -16,20 +25,17 @@
     //remove the message
     unset($alert);
     ?>
-    <div class="well">
-        <?php
-        if (isset($page)) {
-            echo sanitize($page, null);
-        }
+    <?php
+    if (isset($page)) {
+        $file = INC_ROOT. "lib/".sanitize($page,null). ".inc";
 
-        else {
+        echo $file;
+        include $file;
 
-       //     $precheck = 1;
-//object to manage sql connections
-            include 'bin/sqlConnector.php';
+    }
+    else {
+        include INC_ROOT. 'lib/home.inc';
 
-            echo "<h3>Congratulations! Sequel and your configurations are setup correctly.</h3>";
-        }
-        ?>
-    </div>
+    }
+    ?>
 </div>
