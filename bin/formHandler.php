@@ -81,7 +81,7 @@ VALUES ('$fname', '$lname','$username','$textPassword','$salt','$email','$addres
         if (chkPassword($username,$password) == true) {
             $alert = 1;
             $type = "alert-success text-success alert-dismissible";
-            $text = "Logon submitted!";
+            $text = "Successful Logon!";
 
         }
         else {
