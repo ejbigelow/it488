@@ -29,7 +29,6 @@
     if (isset($page)) {
             $file = INC_ROOT . "lib/" . sanitize($page, null) . ".inc";
 
-            echo $file;
             include $file;
     }
     else {

@@ -63,6 +63,16 @@ include INC_ROOT . 'bin/highlink.php';
             </ul>
             <!-- This entire section will remain hidden during phase1 but will be accessible via URL and challenge -->
             <ul class="nav navbar-nav navbar-right">
+                <?php
+                if (isset($_COOKIE['name']) && $_COOKIE['userLevel'] == 5) {
+                    echo "<li class=\"dropdown\">";
+                    echo "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><span class=\"glyphicon glyphicon-cog\"></span><span class=\"hidden-sm\">Admin menu</span> <span class=\"caret\"> </span></a>";
+                    echo "<ul id=\"login-dp\" class=\"dropdown-menu\">";
+                    echo "<li><a href=\"#\">Add product</a>";
+
+                    echo "</ul>";
+                }
+                ?>
                 <li>
                     <form class="navbar-form pull-left hidden-md hidden-sm hidden-xs" role="search">
                         <div class="form-group">

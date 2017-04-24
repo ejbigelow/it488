@@ -12,7 +12,7 @@ include INC_ROOT . 'bin/formHandler.php';
 
 $logout = sanitize($_GET['page'], null);
 if ($logout == 'logout') {
-    $time = time()-60;
+    $time = time()-60*60;
     login($_COOKIE['username'], 1,$handler,$time);
 }
 
