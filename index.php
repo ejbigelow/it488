@@ -10,8 +10,14 @@ define('INC_ROOT', dirname(__DIR__). '/it488/') ;
 include INC_ROOT . 'bin/functions.php';
 include INC_ROOT . 'bin/formHandler.php';
 
+$page = sanitize($_GET['page'], null);
+if ($page == 'logout') {
+    $time = time()-60;
+    login($_COOKIE['username'], 1,$handler,$time);
+}
 
 //HTML
 include INC_ROOT . 'inc/header.inc';
 include INC_ROOT . 'bin/contentLoader.php';
 include INC_ROOT . 'inc/footer.inc';
+
