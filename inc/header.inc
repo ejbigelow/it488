@@ -71,17 +71,34 @@ include INC_ROOT . 'bin/highlink.php';
                         <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                     </form>
                 </li>
-                <!--User Sign-up -->
-                <li><a data-toggle="modal" href="#myModal"><span class="glyphicon glyphicon-user"></span><span class="hidden-sm"> Sign Up</span></a></li>
+                <!--User Sign-up/ Orders link -->
+                <?php
+                if (isset($_COOKIE['name'])) {
+                    echo "<li><a data-toggle=\"modal\" href=\"#myModal\"><span class=\"hidden-sm\"> Orders</span></a></li>";
+                }
+                else {
+                    echo "<li><a data-toggle=\"modal\" href=\"#myModal\"><span class=\"glyphicon glyphicon-user\"></span><span class=\"hidden-sm\"> Sign Up</span></a></li>";
+
+                }
+                ?>
+
                 <!--User logon -->
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span><span class="hidden-sm">  Login</span> <span class="caret"></span></a>
-                    <ul id="login-dp" class="dropdown-menu">
-                        <li>
-                            <?php include INC_ROOT . "lib/logon.php" ?>
-                        </li>
-                    </ul>
-                </li>
+                <?php
+                if (isset($_COOKIE['name'])) {
+                    echo "<li><a href=\"index.php?page=logout\"><span class=\"glyphicon glyphicon-log-in\"></span><span class=\"hidden-sm\">  Logout</span></a></li>";
+                }
+                else {
+
+                    echo "<li class=\"dropdown\">";
+                    echo "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><span class=\"glyphicon glyphicon-log-in\"></span><span class=\"hidden-sm\">  Login</span> <span class=\"caret\"></span></a>";
+                    echo "<ul id=\"login-dp\" class=\"dropdown-menu\">";
+                    echo "<li>";
+                    include INC_ROOT . "lib/logon.php";
+                    echo "</li>";
+                }
+                ?>
+            </ul>
+            </li>
             </ul>
             <!-- Stop hiding here -->
         </div>

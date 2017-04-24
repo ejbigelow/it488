@@ -82,6 +82,8 @@ VALUES ('$fname', '$lname','$username','$textPassword','$salt','$email','$addres
             $alert = 1;
             $type = "alert-success text-success alert-dismissible";
             $text = "Successful Logon!";
+            $time = time()+60;
+            login($username, 1, $handler, $time);
 
         }
         else {
