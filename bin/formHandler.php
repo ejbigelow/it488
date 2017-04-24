@@ -35,8 +35,8 @@ if (isset($_POST['registration']) || isset($_POST['logon'])) {
             $encryptedPassword = md5($password);
             $textPassword = "$encryptedPassword";
             if (chkuser($username, $handler) == false) {
-                $sql = "INSERT INTO users (FirstName,LastName,username,Password,salt, email,address1,City,state, zipcode, joined)
-VALUES ('$fname', '$lname','$username','$textPassword','$salt','$email','$address1','$city','$state','$state', NOW())";
+                $sql = "INSERT INTO users (FirstName,LastName,username,Password,salt, userLevel,email,address1,City,state, zipcode, joined)
+VALUES ('$fname', '$lname','$username','$textPassword','$salt', '2','$email','$address1','$city','$state','$state', NOW())";
                 try {
                     $handler->query($sql);
                     $alert = 1;
