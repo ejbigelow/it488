@@ -6,6 +6,7 @@
  * Time: 3:07 PM
  */
 
+
 /**
  * Used to sanitize $_GET variables
  * @param $input text to be sanitized.

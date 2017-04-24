@@ -10,8 +10,8 @@ define('INC_ROOT', dirname(__DIR__). '/it488/') ;
 include INC_ROOT . 'bin/functions.php';
 include INC_ROOT . 'bin/formHandler.php';
 
-$page = sanitize($_GET['page'], null);
-if ($page == 'logout') {
+$logout = sanitize($_GET['page'], null);
+if ($logout == 'logout') {
     $time = time()-60;
     login($_COOKIE['username'], 1,$handler,$time);
 }
