@@ -87,6 +87,7 @@ function login($username,$success, $handler, $time)
         if ($r['username'] == $username) {
             $clientName = htmlentities($r['FirstName']) . " " . htmlentities($r['LastName']);
             $clientEmail = htmlentities($r['email']);
+            $UID = htmlentities($r['UserID']);
             $userlevel = htmlentities($r['userLevel']);
             $dbpass = $r['Password'];
         }
@@ -94,6 +95,8 @@ function login($username,$success, $handler, $time)
         setcookie('username', $username, $time);
         setcookie('userLevel', $userlevel, $time);
         setcookie('password', $dbpass, $time);
+        setcookie('email', $clientEmail, $time);
+        setcookie('UID',$UID,$time);
 
         header("location:index.php");
     }

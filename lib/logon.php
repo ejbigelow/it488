@@ -7,7 +7,7 @@
  */
 ?>
 <form class="form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" accept-charset="UTF-8" id="login-nav">
-    <input type="hidden" name="logon" />
+   <input type="hidden" name="logon" />
 <div class="my-login-form">
     <h4>Sign In</h4>
     <hr />

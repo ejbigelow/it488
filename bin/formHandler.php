@@ -6,7 +6,7 @@
  * Time: 12:21 PM
  */
 
-if (isset($_POST['registration']) || isset($_POST['logon'])) {
+if (isset($_POST['registration']) || isset($_POST['logon']) || isset($_POST['addProduct'])) {
     if (isset($_POST['registration'])) {
         include INC_ROOT . 'bin/sqlConnector.php';
         /* associated post variables returned sanitized*/
@@ -91,12 +91,28 @@ VALUES ('$fname', '$lname','$username','$textPassword','$salt', '2','$email','$a
             $type = "alert-danger text-danger alert-dismissible";
             $text = "Invalid username or password";
         }
-    } else {
+    }
+    elseif (isset($_POST['addProduct'])) {
+        $productName = sanitize($_POST['Pname'], null). '<br/>';
+        $productQty = sanitize($_POST['Pqty'], null). '<br/>';
+        $productUnitCost = sanitize($_POST['Ucost'], null). '<br/>';
+        $productDescription = sanitize(addslashes($_POST['Pdesc']), null). '<br/>';
+        $productImageFile = $_POST['productImageName'];
+        $action = 'upload';
+        /*ProductID	ProductName	CategoryID	UnitPrice	UnitsInstock	imageID	Discontinued*/
+        echo $productName;
+        echo $productQty;
+        echo $productDescription;
+        $alert = 1;
+        $type = "alert-success text-success alert-dismissible";
+        $text = "The product was successfully registered!";
+    }
+    else {
         $alert = 1;
         $type = "alert-danger text-danger";
         $text = "an unknown result was triggered in" . $_SERVER['PHP_SELF'];
     }
-} else {
+
 }
 
 ?>
