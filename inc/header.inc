@@ -91,6 +91,8 @@ include INC_ROOT . 'bin/highlink.php';
                     echo "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><span class=\"glyphicon glyphicon-cog\"></span><span class=\"hidden-sm\">Admin menu</span> <span class=\"caret\"> </span></a>";
                     echo "<ul id=\"login-dp\" class=\"dropdown-menu\">";
                     echo "<li><a href=\"index.php?page=addproduct\">Add product</a>";
+                    echo "<li><a href=\"test/form1.php\">testing</a>";
+
 
                     echo "</ul>";
                 }

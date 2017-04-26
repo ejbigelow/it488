@@ -1,130 +1,99 @@
 <!--
     This catalog code
 -->
-<div class="container">
 
+<!-- Carousel Header -->
 
-    <!-- Carousel Header -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
 
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-            <li data-target="#myCarousel" data-slide-to="3"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <img src="img/patio.jpg" alt="Outdoor">
-            </div>
-
-            <div class="item">
-                <img src="img/electronic.jpg" alt="Electronics">
-            </div>
-
-            <div class="item">
-                <img src="img/household.jpeg" alt="Household appliances">
-            </div>
-
-
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="img/patio.jpg" alt="Outdoor">
         </div>
 
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-
-    <!--end carrusel -->
-
-    <!-- Title -->
-    <div class="row">
-        <div class="col-lg-12">
-            <h3>New Arrivals</h3>
+        <div class="item">
+            <img src="img/electronic.jpg" alt="Electronics">
         </div>
-    </div>
-    <!-- /.row -->
 
+        <div class="item">
+            <img src="img/household.jpeg" alt="Household appliances">
+        </div>
+
+
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<!--end carrusel -->
+
+<!-- Title -->
+<div class="row">
+    <div class="col-lg-12">
+        <h3>New Arrivals</h3>
+    </div>
+</div>
+<!-- /.row -->
+<?php
+include INC_ROOT . 'bin/sqlConnector.php';
+try {
+    $query = $handler->query("SELECT * FROM products");
+}
+catch(PDOException $e){
+    echo $e;
+}
+$count = 0;
+while ($r = $query->fetch()) {
+    $itemID = $r['ProductID'];
+    $itemName = $r['ProductName'];
+    $itemImage = $r['ImageID'];
+    $itemDesc = addslashes($r['Description']);
+    $itemUnitPrice = $r['UnitPrice'];
+    $itemCategory = $r['CategoryID'];
+    if ($count == 4) {
+    echo "</div>";
+        $count = 0;
+    }
+    else {
+        echo "     <!-- Row ".$count." -->\n";
+        echo "<div id=\"row".$count."\" class=\"row\">\n";
+    }
+    ?>
     <!-- Page Features -->
-    <div class="row text-center">
-
-        <div class="col-md-3 col-sm-6 hero-feature">
-            <div class="thumbnail">
-                <img src="http://placehold.it/800x500" alt="">
-                <div class="caption">
-                    <h3>Item #1</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <p>
-                        <a href="test/checkout.html" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart align-left" aria-hidden="true"></span></a> <a href="test/description.htm" class="btn btn-default">view</a>
-
-                    </p>
-                </div>
-
+    <!--- <?php echo $itemName; ?> Start--->
+    <div style="height: 250px" id="<?php echo $itemName; ?>" class="col-md-3 col-sm-3 hero-feature">
+        <div class="thumbnail">
+            <img class="img-responsive" src="test/image.php?imgID=<?php echo $itemImage; ?>" alt="">
+            <div class="caption">
+                <h3><?php echo $itemName; ?></h3>
+                <p><?php echo stripcslashes($itemDesc); ?></p>
+                <p>Price: <?php echo $itemUnitPrice; ?></p>
+                <p>Category: <a href="index.php?page=catelogue&catID=<?php echo $itemCategory; ?>"><?php echo getCategory($itemCategory); ?></a></p>
+                    <a href="test/checkout.html" class="btn btn-primary"><span
+                            class="glyphicon glyphicon-shopping-cart align-left" aria-hidden="true"></span></a>
+                    <a href="test/description.php?item=<?php echo $itemID;?>" class="btn btn-default">view</a>
             </div>
         </div>
-
-
-        <div class="col-md-3 col-sm-6 hero-feature">
-
-            <div class="thumbnail">
-
-                <img src="http://placehold.it/800x500" alt="">
-
-                <div class="caption">
-
-                    <h3>Item #2</h3>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-
-                    <p>
-
-                        <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart align-left" aria-hidden="true"></span></a> <a href="#" class="btn btn-default">view</a>
-
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 col-sm-6 hero-feature">
-            <div class="thumbnail">
-                <img src="http://placehold.it/800x500" alt="">
-                <div class="caption">
-                    <h3>item #3</h3>
-                    <p>Product Description
-                        Price: $ 2.00 .</p>
-                    <p>
-                        <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart align-left" aria-hidden="true"></span></a> <a href="#" class="btn btn-default">view</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 col-sm-6 hero-feature">
-            <div class="thumbnail">
-                <img src="http://placehold.it/800x500" alt="">
-                <div class="caption">
-                    <h3>item #4</h3>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-
-                    <p>
-                        <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart align-left" aria-hidden="true"></span></a> <a href="#" class="btn btn-default">view</a>
-
-
-                    </p>
-
-                </div>
-            </div>
-        </div>
-
     </div>
-    </body>
-    <p class="text-center">&copy;2017 ACME Industries llc.</p>
+    <!--- <?php echo $itemName; ?> End--->
+    <?php
+    $count = $count+1;
+}
+?>
+</div>
+<!--- Row (feature) End-->

@@ -21,8 +21,8 @@ if (isset($_COOKIE['userLevel']) && $_COOKIE['userLevel'] >= 5) {
 
         /*Prepare to insert*/
         $uploader = $_COOKIE['UID'];
-        $sql = "INSERT INTO products (ProductName,CategoryID,UnitPrice,UnitsInstock,imageID,Discontinued,uploader,last_updated)
-VALUES ('$productName', '$productCatagory', '$productUnitCost', '$productQty', $productImgNum,'1','$uploader', NOW())";
+        $sql = "INSERT INTO products (ProductName,CategoryID,UnitPrice,UnitsInstock,imageID,Discontinued,uploader, Description,last_updated)
+VALUES ('$productName', '$productCatagory', '$productUnitCost', '$productQty', $productImgNum,'0','$uploader', '$productDescription', NOW())";
         try {
             $handler->query($sql);
             echo "product upload successful";

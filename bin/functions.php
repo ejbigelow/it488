@@ -101,3 +101,32 @@ function login($username,$success, $handler, $time)
         header("location:index.php");
     }
 }
+function getRows($table){
+    include INC_ROOT . 'bin/sqlConnector.php';
+    try {
+        $query = $handler->query("SELECT * FROM $table");
+    }
+    catch(PDOException $e){
+        echo $e;
+    }
+    $count = 0;
+    while ($r = $query->fetch()) {
+        $count = $count+1;
+    }
+return $count;
+}
+function getCategory($cat){
+    include INC_ROOT . 'bin/sqlConnector.php';
+    try {
+        $query = $handler->query("SELECT * FROM Product_Catagories WHERE catID='$cat'");
+    }
+    catch(PDOException $e){
+        echo $e;
+    }
+    while ($r = $query->fetch()) {
+        $category = $r['CatName'];
+
+    }
+
+    return $category;
+}
