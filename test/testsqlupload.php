@@ -24,10 +24,10 @@ if (isset($_POST['addProduct'])) {
     $fileImage = $_FILES["image"]["name"];
     $fileData = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));
     $fileType = $_FILES["image"]["type"];
-/*    echo "file stuff";
-    echo $fileImage . '<br />';
-    echo $fileType . '<br />';
-*/  if (substr($fileType, 0, 5) == "image") {
+    /*    echo "file stuff";
+        echo $fileImage . '<br />';
+        echo $fileType . '<br />';
+    */  if (substr($fileType, 0, 5) == "image") {
         include '../config.php';
         include '../bin/sqlConnector.php';
         $uploader = $_COOKIE['UID'];
@@ -81,15 +81,39 @@ VALUES ('$productName', '$productCatagory', '$productUnitCost', '$productQty', $
 }
 
 else {
-    ?>
-    <?php
-    if ($_COOKIE['userLevel'] != 5) {
-        header("location:../index.php?page=home");
-    }
-    else {
-        ?>
-        <p class="text-center">Add product</p>
-        <form name="addProduct" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
+?>
+<?php
+if ($_COOKIE['userLevel'] != 5) {
+    header("location:../index.php?page=home");
+}
+else {
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>ACME llc. Order form:
+        Home    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link href="../css/custom.css" rel="stylesheet">
+    <script>
+    </script>
+</head>
+<body>
+<div class="container">
+    <p class="text-center">Add product</p>
+    <form name="addProduct" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <div id="addProduct-werapper">
             <div class="row">
                 <!-- Item specifics-->
                 <div class="col-lg-1">
@@ -98,10 +122,6 @@ else {
                     <label for="Ucost" class="control-label">Unit cost: </label>
                     <label for="Pdesc" class="control-label">category: </label>
                     <label for="Pdesc" class="control-label">description: </label>
-                    <label for="Pdesc" class="control-label">file: </label>
-
-
-
                 </div>
                 <div class="col-lg-4">
 
@@ -109,21 +129,14 @@ else {
                     <input type="text" class="form-control my-product-form" name="Pqty" placeholder="Quantity, number of units">
                     <input type="text" class="form-control my-product-form" name="Ucost" placeholder="Unit cost, cost per unit">
                     <textarea type="text" class="form-control my-product-form" name="Pdesc" placeholder="Brief description"></textarea>
-                    <input type="file" class="form-control-file" id="image" name="image" aria-describedby="fileHelp">
 
                 </div>
-                <div class="col-lg-2"></div>
-            </div>
-            <div>
-                <?php
-                $type= "alert-info";
-                $text = "After you press add item you will have a chance to add a picture";
-                echo "<div class=\"alert ";
-                echo $type;
-                echo "\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><h4>";
-                echo $text;
-                echo "</h4></div>";
-                ?>
+                <div class="col-lg-1"></div>
+                <div class="col-lg-4 col-lg-offset-3 my-product-picture2">
+                    <?php
+                    include 'imageUploaderFrame.php';
+                    ?>
+                </div>
             </div>
             <div class="text-right">
                 <!-- Button submit-->
@@ -131,14 +144,17 @@ else {
                 <!-- Button reset -->
                 <button type="reset" class="btn btn-primary">Reset</button>
             </div>
-        </form>
-        <?php
+        </div>
+    </form>
+</div>
+</body>
+<?php
 
-    }
-    ?>
+}
+?>
 
 
 
-    <?php
+<?php
 }
 ?>
