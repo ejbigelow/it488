@@ -86,7 +86,7 @@ while ($r = $query->fetch()) {
                 <p>Category: <a href="index.php?page=catelogue&catID=<?php echo $itemCategory; ?>"><?php echo getCategory($itemCategory); ?></a></p>
                     <a href="test/checkout.html" class="btn btn-primary"><span
                             class="glyphicon glyphicon-shopping-cart align-left" aria-hidden="true"></span></a>
-                    <a href="test/description.php?item=<?php echo $itemID;?>" class="btn btn-default">view</a>
+                    <a href="index.php?page=description&item=<?php echo $itemID;?>" class="btn btn-default">view</a>
             </div>
         </div>
     </div>
