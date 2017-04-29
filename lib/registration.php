@@ -52,7 +52,7 @@
             <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
             <label for="zipcode" class="control-label">Zipcode:</label>
-            <input type ="text" class="form-control" name="zip" placeholder="zipcode"/>
+            <input type ="text" class="form-control" name="zipcode" placeholder="zipcode"/>
                 </div>
         </div>
     </div>

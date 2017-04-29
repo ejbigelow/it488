@@ -7,6 +7,7 @@
  */
 
 if (isset($_POST['registration']) || isset($_POST['logon']) || isset($_POST['addProduct'])) {
+    echo $_POST['zipcode'];
     if (isset($_POST['registration'])) {
         include INC_ROOT . 'bin/sqlConnector.php';
         /* associated post variables returned sanitized*/
@@ -18,10 +19,10 @@ if (isset($_POST['registration']) || isset($_POST['logon']) || isset($_POST['add
         $address1 = sanitize($_POST['address1'], null);
         $city = sanitize($_POST['city'], null);
         $state = sanitize($_POST['state'], null);
-        $zip = sanitize($_POST['zip'], null);
+        $zip = sanitize($_POST['zipcode'], null);
         /* unsanitized */
-        $password = $_POST['password'];
-        $password_confirm = $_POST['password2'];
+        $password = addslashes($_POST['password']);
+        $password_confirm = addslashes($_POST['password2']);
 
         if ($password != $password_confirm) {
             $alert = 1;
@@ -36,7 +37,7 @@ if (isset($_POST['registration']) || isset($_POST['logon']) || isset($_POST['add
             $textPassword = "$encryptedPassword";
             if (chkuser($username, $handler) == false) {
                 $sql = "INSERT INTO users (FirstName,LastName,username,Password,salt, userLevel,email,address1,City,state, zipcode, joined)
-VALUES ('$fname', '$lname','$username','$textPassword','$salt', '2','$email','$address1','$city','$state','$state', NOW())";
+VALUES ('$fname', '$lname','$username','$textPassword','$salt', '2','$email','$address1','$city','$state','$zip', NOW())";
                 try {
                     $handler->query($sql);
                     $alert = 1;
@@ -77,8 +78,9 @@ VALUES ('$fname', '$lname','$username','$textPassword','$salt', '2','$email','$a
         }
     } elseif (isset($_POST['logon'])) {
         $username = sanitize($_POST['username'], null);
-        $password = $_POST['password'];
+        $password = addslashes($_POST['password']);
         if (chkPassword($username,$password) == true) {
+
             $alert = 1;
             $type = "alert-success text-success alert-dismissible";
             $text = "Successful Logon!";
