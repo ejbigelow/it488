@@ -4,7 +4,7 @@
 
 <!-- Carousel Header -->
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<div id="myCarousel" class="carousel slide" data-ride="carousel" xmlns="http://www.w3.org/1999/html">
     <!-- Indicators -->
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -40,15 +40,8 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-<!--end carrusel -->
-
-<!-- Title -->
-<div class="row">
-    <div class="col-lg-12">
-        <h3>New Arrivals</h3>
-    </div>
-</div>
-<!-- /.row -->
+<!--end carousel -->
+<!-- Page Features -->
 <?php
 include INC_ROOT . 'bin/sqlConnector.php';
 try {
@@ -57,43 +50,46 @@ try {
 catch(PDOException $e){
     echo $e;
 }
+/*Row test*/
+?>
+<?php
 $count = 0;
 while ($r = $query->fetch()) {
-    $itemID = $r['ProductID'];
-    $itemName = $r['ProductName'];
-    $itemImage = $r['ImageID'];
-    $itemDesc = addslashes($r['Description']);
-    $itemUnitPrice = $r['UnitPrice'];
-    $itemCategory = $r['CategoryID'];
-    if ($count == 4) {
-    echo "</div>";
-        $count = 0;
+    $itemAvailability = $r['Discontinued'];
+    if ($itemAvailability != 1) {
+        $itemID = $r['ProductID'];
+        $itemName = $r['ProductName'];
+        $itemImage = $r['ImageID'];
+        $itemDesc = addslashes($r['Description']);
+        $itemUnitPrice = $r['UnitPrice'];
+        $itemCategory = $r['CategoryID'];
+        $itemRecent = $r['last_updated'];
     }
-    else {
-        echo "     <!-- Row ".$count." -->\n";
-        echo "<div id=\"row".$count."\" class=\"row\">\n";
-    }
-    ?>
-    <!-- Page Features -->
-    <!--- <?php echo $itemName; ?> Start--->
-    <div style="height: 250px" id="<?php echo $itemName; ?>" class="col-md-3 col-sm-3 hero-feature">
-        <div class="thumbnail">
-            <img class="img-responsive" src="test/image.php?imgID=<?php echo $itemImage; ?>" alt="">
-            <div class="caption">
-                <h3><?php echo $itemName; ?></h3>
-                <p><?php echo stripcslashes($itemDesc); ?></p>
-                <p>Price: <?php echo $itemUnitPrice; ?></p>
-                <p>Category: <a href="index.php?page=catelogue&catID=<?php echo $itemCategory; ?>"><?php echo getCategory($itemCategory); ?></a></p>
+    if ($itemAvailability != 1) {
+
+        ?>
+        <!--- <?php echo $itemName; ?> Start--->
+        <div class="col-lg-3 col-md-3, col-sm-3 col-xs-4">
+            <div class="panel panel-default floating-box ">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><?php echo $itemName; ?></h3>
+                </div>
+                <div class="panel-body">
+                    <img class="img-responsive thumbnail" src="test/image.php?imgID=<?php echo $itemImage; ?>" alt="">
+                    <h3><?php echo $itemName; ?></h3>
+                    <p><?php echo stripcslashes($itemDesc); ?></p>
+                    <p>Price: <?php echo $itemUnitPrice; ?></p>
+                    <p>Category: <a href="index.php?page=catelogue&catID=<?php echo $itemCategory; ?>"><?php echo getCategory($itemCategory); ?></a></p>
                     <a href="test/checkout.html" class="btn btn-primary"><span
                             class="glyphicon glyphicon-shopping-cart align-left" aria-hidden="true"></span></a>
-                    <a href="index.php?page=description&item=<?php echo $itemID;?>" class="btn btn-default">view</a>
+                    <a href="index.php?page=description&item=<?php echo $itemID; ?>" class="btn btn-default">view</a>
+                </div>
             </div>
         </div>
-    </div>
-    <!--- <?php echo $itemName; ?> End--->
-    <?php
-    $count = $count+1;
+        <!--- <?php echo $itemName; ?> End--->
+
+        <?php
+    }
 }
 ?>
-</div>
 <!--- Row (feature) End-->
