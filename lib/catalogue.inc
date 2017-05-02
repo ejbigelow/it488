@@ -76,8 +76,12 @@ while ($r = $query->fetch()) {
                 </div>
                 <div class="panel-body">
                     <img class="img-responsive thumbnail" src="test/image.php?imgID=<?php echo $itemImage; ?>" alt="">
-                    <h3><?php echo $itemName; ?></h3>
-                    <p><?php echo stripcslashes($itemDesc); ?></p>
+                    <h4 class="visible-md hidden-lg hidden-sm hidden-xs"><?php echo $itemName; ?></h4>
+                    <h5 class="visible-sm hidden-md hidden-lg hidden-xs"><?php echo $itemName; ?></h5>
+                    <h6 class="visible-xs hidden-md hidden-sm hidden-lg"><?php echo $itemName; ?></h6>
+
+                    <h3 class="visible-lg hidden-md hidden-sm hidden-xs"><?php echo $itemName; ?></h3>
+                    <p class="visible-lg hidden-md hidden-sm hidden-xs"><?php echo stripcslashes($itemDesc); ?></p>
                     <p>Price: <?php echo $itemUnitPrice; ?></p>
                     <p>Category: <a href="index.php?page=catelogue&catID=<?php echo $itemCategory; ?>"><?php echo getCategory($itemCategory); ?></a></p>
                     <a href="test/checkout.html" class="btn btn-primary"><span
