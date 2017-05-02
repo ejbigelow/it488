@@ -26,7 +26,7 @@ while ($r = $query->fetch()) {
 ?>
 <div class="panel panel-info">
     <div class="panel-heading">
-        <?php echo $itemName; ?> in <a href="index.php?page=catelogue&catID=<?php echo $itemCategory; ?>"><?php echo getCategory($itemCategory); ?></a>
+        <?php echo $itemName; ?> in <a href="index.php?page=catalogue&catalogID=<?php echo $itemCategory; ?>"><?php echo getCategory($itemCategory); ?></a>
     </div>
     <div class="panel-body">
         <div class="form-group">
@@ -57,7 +57,7 @@ while ($r = $query->fetch()) {
                 <a href="../test/checkout.html" class="btn btn-success"><span
                         class="glyphicon glyphicon-shopping-cart align-left" aria-hidden="true">Buy</span></a>
 
-                <a href="index.html" class="btn btn-default">Back</a>
+                <a href="index.php?page=catalogue" class="btn btn-default">Back</a>
             </div>
         </div>
 

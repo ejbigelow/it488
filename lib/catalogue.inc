@@ -1,6 +1,3 @@
-<!--
-    This catalog code
--->
 
 <!-- Carousel Header -->
 
@@ -44,8 +41,18 @@
 <!-- Page Features -->
 <?php
 include INC_ROOT . 'bin/sqlConnector.php';
+if (isset($_GET['catalogID'])) {
+    $catID = sanitize($_GET['catalogID'], null);
+    echo "<h1 class='text-center'>Shopping in ". getCategory($catID)."</h1>";
+
+    $output = $handler->query("SELECT * FROM products WHERE CategoryID='$catID'");
+}
+else {
+  $output = $handler->query("SELECT * FROM products");
+}
 try {
-    $query = $handler->query("SELECT * FROM products");
+    $query = $output;
+//    $query = $handler->query("SELECT * FROM products");
 }
 catch(PDOException $e){
     echo $e;
@@ -83,7 +90,7 @@ while ($r = $query->fetch()) {
                     <h3 class="visible-lg hidden-md hidden-sm hidden-xs"><?php echo $itemName; ?></h3>
                     <p class="visible-lg hidden-md hidden-sm hidden-xs"><?php echo stripcslashes($itemDesc); ?></p>
                     <p>Price: <?php echo $itemUnitPrice; ?></p>
-                    <p>Category: <a href="index.php?page=catelogue&catID=<?php echo $itemCategory; ?>"><?php echo getCategory($itemCategory); ?></a></p>
+                    <p>Category: <a href="index.php?page=catalogue&catalogID=<?php echo $itemCategory; ?>"><?php echo getCategory($itemCategory); ?></a></p>
                     <a href="test/checkout.html" class="btn btn-primary"><span
                             class="glyphicon glyphicon-shopping-cart align-left" aria-hidden="true"></span></a>
                     <a href="index.php?page=description&item=<?php echo $itemID; ?>" class="btn btn-default">view</a>
