@@ -32,7 +32,7 @@
             include $file;
     }
     else {
-        include INC_ROOT. 'lib/home.inc';
+        include INC_ROOT . 'lib/home.inc';
 
     }
     ?>

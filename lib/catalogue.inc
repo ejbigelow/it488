@@ -52,7 +52,6 @@ else {
 }
 try {
     $query = $output;
-//    $query = $handler->query("SELECT * FROM products");
 }
 catch(PDOException $e){
     echo $e;

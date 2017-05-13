@@ -1,17 +1,121 @@
-<div class="jumbotron">
-    <h1>Welcome to Order.com</h1>
-    <h3>The one stop-shop for all your household needs</h3>
+<h2>Orders.com</h2>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4"></li>
+    </ol>
 
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+
+        <div class="item active">
+            <img src="img/orders.jpg" alt="Welcome to Orders.com" style="width:100%; height: 75% ; align-items: center">
+            <div class="carousel-caption">
+                <h3>Welcome to Orders.com</h3>
+                <p>Best shop online experience</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="img/cart.jpg" alt="Shopping cart" style="width:100%; height: 75% ; align-items: center">
+            <div class="carousel-caption">
+                <h3>Purchases Online</h3>
+                <p>We have what you looking for!</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="img/free-shipping-image.jpg" alt="Free Shipping" style="width:100%; height: 75%; align-items: center">
+            <div class="carousel-caption">
+                <h3>Free Shopping</h3>
+                <p>We ship to almost everywhere</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="img/outdoor.jpeg" alt="Outdoor Furniture" style="width:100%; height: 75%; align-items: center">
+            <div class="carousel-caption">
+                <h3>50% off on selected furniture</h3>
+                <p>End soon!</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="img/homeapplicances.jpg" alt="Home Appliances discounts" style="width:100%; height:75%; align-items: center">
+            <div class="carousel-caption">
+                <h3>15% off on home appliances</h3>
+                <p>during mothers day!!!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+    </a>
 </div>
-<div class="row center-block">
-    <div class="col-lg-3 jumbotron text-center block1">
-        household
-    </div>
-    <div class="col-lg-3 col-lg-offset-1 jumbotron block2">
-        electronics
-    </div>
-    <div class="col-lg-3 col-lg-offset-1 jumbotron block3">
-        outdoors
-    </div>
 
+
+<---CATEGORIES STARTS HERE-->
+<div class="row center-block">
+    <?php
+    include INC_ROOT . 'bin/sqlConnector.php';
+        $output = $handler->query("SELECT * FROM Product_Catagories");
+    try {
+        $query = $output;
+    }
+    catch(PDOException $e){
+        echo $e;
+    }        while ($r = $query->fetch()) {
+        $itemAvailability = $r['Discontinued'];
+        if ($itemAvailability != 1) {
+            $itemID = $r['ProductID'];
+            $itemName = $r['CatName'];
+            $itemImage = $r['ImageID'];
+            $itemDesc = addslashes($r['Description']);
+            $itemUnitPrice = $r['UnitPrice'];
+            $itemCategory = $r['catID'];
+            $itemRecent = $r['last_updated'];
+        }
+        if ($itemAvailability != 1) {
+
+            ?>
+            <!--- <?php echo $itemName; ?> Start--->
+            <div class="col-lg-3 col-md-3, col-sm-3 col-xs-4">
+                <div class="panel panel-default floating-box ">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Shop <?php echo $itemName; ?></h3>
+                    </div>
+                    <div class="panel-body">
+                        <img class="img-responsive thumbnail" src="test/image.php?imgID=<?php /*echo $itemImage; ?>" alt="">
+                        <!--<h4 class="visible-md hidden-lg hidden-sm hidden-xs"><?php echo $itemName; ?></h4>
+                        <h5 class="visible-sm hidden-md hidden-lg hidden-xs"><?php echo $itemName; ?></h5>
+                        <h6 class="visible-xs hidden-md hidden-sm hidden-lg"><?php echo $itemName; ?></h6>
+
+                        <h3 class="visible-lg hidden-md hidden-sm hidden-xs"><?php echo $itemName; ?></h3>
+                        <p class="visible-lg hidden-md hidden-sm hidden-xs"><?php echo stripcslashes($itemDesc); ?></p>
+                        <p>Price: <?php echo $itemUnitPrice; */?></p>
+                        <p>Category: <a href="index.php?page=catalogue&catalogID=<?php echo $itemCategory; ?>"><?php echo getCategory($itemCategory); ?></a></p>
+                        <a href="test/checkout.html" class="btn btn-primary"><span
+                                class="glyphicon glyphicon-shopping-cart align-left" aria-hidden="true"></span></a>
+                        <a href="index.php?page=description&item=<?php echo $itemID; ?>" class="btn btn-default">view</a>
+                    </div>
+                </div>
+            </div>
+            <!--- <?php echo $itemName; ?> End--->
+
+            <?php
+        }
+    }
+    ?>
 </div>
