@@ -81,7 +81,7 @@ while ($r = $query->fetch()) {
                     <h3 class="panel-title"><?php echo $itemName; ?></h3>
                 </div>
                 <div class="panel-body">
-                    <img class="img-responsive thumbnail" src="test/image.php?imgID=<?php echo $itemImage; ?>" alt="">
+                    <img class="img-responsive thumbnail" src="bin/image.php?imgID=<?php echo $itemImage; ?>" alt="">
                     <h4 class="visible-md hidden-lg hidden-sm hidden-xs"><?php echo $itemName; ?></h4>
                     <h5 class="visible-sm hidden-md hidden-lg hidden-xs"><?php echo $itemName; ?></h5>
                     <h6 class="visible-xs hidden-md hidden-sm hidden-lg"><?php echo $itemName; ?></h6>

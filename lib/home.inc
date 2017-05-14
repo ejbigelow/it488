@@ -1,4 +1,3 @@
-<h2>Orders.com</h2>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -77,45 +76,30 @@
     catch(PDOException $e){
         echo $e;
     }        while ($r = $query->fetch()) {
-        $itemAvailability = $r['Discontinued'];
-        if ($itemAvailability != 1) {
             $itemID = $r['ProductID'];
+            //here
             $itemName = $r['CatName'];
-            $itemImage = $r['ImageID'];
+            $itemImage = catImage($itemCategory);
             $itemDesc = addslashes($r['Description']);
             $itemUnitPrice = $r['UnitPrice'];
+            //here
             $itemCategory = $r['catID'];
             $itemRecent = $r['last_updated'];
-        }
-        if ($itemAvailability != 1) {
 
             ?>
             <!--- <?php echo $itemName; ?> Start--->
+            <a href ="index.php?page=catalogue&catalogID=<?php echo $itemCategory; ?>">
             <div class="col-lg-3 col-md-3, col-sm-3 col-xs-4">
                 <div class="panel panel-default floating-box ">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Shop <?php echo $itemName; ?></h3>
+                        <h3 class="panel-title text-center">Shop <?php echo $itemName; ?></h3>
                     </div>
                     <div class="panel-body">
-                        <img class="img-responsive thumbnail" src="test/image.php?imgID=<?php /*echo $itemImage; ?>" alt="">
-                        <!--<h4 class="visible-md hidden-lg hidden-sm hidden-xs"><?php echo $itemName; ?></h4>
-                        <h5 class="visible-sm hidden-md hidden-lg hidden-xs"><?php echo $itemName; ?></h5>
-                        <h6 class="visible-xs hidden-md hidden-sm hidden-lg"><?php echo $itemName; ?></h6>
-
-                        <h3 class="visible-lg hidden-md hidden-sm hidden-xs"><?php echo $itemName; ?></h3>
-                        <p class="visible-lg hidden-md hidden-sm hidden-xs"><?php echo stripcslashes($itemDesc); ?></p>
-                        <p>Price: <?php echo $itemUnitPrice; */?></p>
-                        <p>Category: <a href="index.php?page=catalogue&catalogID=<?php echo $itemCategory; ?>"><?php echo getCategory($itemCategory); ?></a></p>
-                        <a href="test/checkout.html" class="btn btn-primary"><span
-                                class="glyphicon glyphicon-shopping-cart align-left" aria-hidden="true"></span></a>
-                        <a href="index.php?page=description&item=<?php echo $itemID; ?>" class="btn btn-default">view</a>
+                        <img class="img-responsive thumbnail" src="bin/image.php?imgID=<?php echo catImage($itemCategory); ?>" alt=""></a>
                     </div>
                 </div>
             </div>
-            <!--- <?php echo $itemName; ?> End--->
-
             <?php
-        }
     }
     ?>
 </div>

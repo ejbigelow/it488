@@ -36,7 +36,7 @@ if (isset($_COOKIE['userLevel']) && $_COOKIE['userLevel'] >= 5) {
             <h3 class="panel-title">Please select your product image</h3>
         </div>
         <div class="panel-body">
-            <form id="addPicture" class="form-horizontal" action="form2.php" method="post" enctype="multipart/form-data">
+            <form id="addPicture" class="form-horizontal" action="lib/form2.php" method="post" enctype="multipart/form-data">
                 <div class="">
                     <!-- Username -->
                     <label for= "altText" class="control-label col-sm-2 col-sm-offset-2">Alt text: </label>

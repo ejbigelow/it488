@@ -130,3 +130,18 @@ function getCategory($cat){
 
     return $category;
 }
+function catImage($cat){
+    include INC_ROOT . 'bin/sqlConnector.php';
+    try {
+        $query = $handler->query("SELECT * FROM products WHERE categoryID='$cat' Limit 1");
+    }
+    catch(PDOException $e){
+        echo $e;
+    }
+    while ($r = $query->fetch()) {
+       $img = $r['ImageID'];
+
+    }
+
+    return $img;
+}

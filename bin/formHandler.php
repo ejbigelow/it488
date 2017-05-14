@@ -101,11 +101,10 @@ VALUES ('$fname', '$lname','$username','$textPassword','$salt', '2','$email','$a
         $productDescription = sanitize(addslashes($_POST['Pdesc']), null). '<br/>';
         $productImageFile = $_POST['productImageName'];
         $action = 'upload';
-        /*ProductID	ProductName	CategoryID	UnitPrice	UnitsInstock	imageID	Discontinued*/
-        echo $productName;
+/*        echo $productName;
         echo $productQty;
         echo $productDescription;
-        $alert = 1;
+*/      $alert = 1;
         $type = "alert-success text-success alert-dismissible";
         $text = "The product was successfully registered!";
     }
