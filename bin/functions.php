@@ -145,3 +145,19 @@ function catImage($cat){
 
     return $img;
 }
+function easyRead($n){
+    $number = $n;
+    if ($number % 2 == 0) {
+        echo "even";
+    }
+    else {
+        echo "nope";
+    }
+return;
+
+}
+
+
+
+
+

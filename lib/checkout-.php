@@ -63,9 +63,20 @@
                     $inc = 3;
                     for ($i=1;$i<=$inc;$i++) {
                         echo "<!--Start or item" . $i . "-->\n";
-
+                        if ($i % 2 == 0) {
+                            $even = 1;
+                        }
+                        else {
+                            unset($even);
+                        }
                         ?>
-                        <div class="row">
+                        <div class="row <?php
+                        if (isset($even)) {
+                            echo "evenRow";
+                        }
+                        ?>
+
+                        ">
                             <div id="itemPicture" class="col-lg-3">
                                 <img class="img-responsive" src="../img/242x200.png" alt="sample img"/>
                             </div>
