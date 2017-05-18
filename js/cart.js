@@ -7,10 +7,6 @@
         var price1 = Number(document.getElementById('price1').value);
         var shipping = Number(document.getElementById('cshipping').value);
 
-
-
-
-        var sampletax = 0.06;
         var ptotal=qty1*price1;
         var ptotalFix = ptotal.toFixed(2);
         var totalTax = ptotal*0.06.toFixed(2);

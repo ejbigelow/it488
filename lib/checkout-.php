@@ -136,8 +136,36 @@
 <div class="row cart-footer">
 
 </div>
-
+<!--
 <script src="../js/cart.js"></script>
+-->
+<script type="text/javascript">
+    <!--java script total formula-->
 
+    function findTotal(){
+        <!--items multiplication-->
+        <?php
+        for ($i=1;$i<=1;$i++) {
+            echo "var qty".$i." = Number(document.getElementById('qty".$i."').value);\n";
+            echo "var price".$i." = Number(document.getElementById('price".$i."').value);\n";
+
+        }
+ ?>
+        var shipping = Number(document.getElementById('cshipping').value);
+
+        var ptotal=qty1*price1;
+        var ptotalFix1 = ptotal.toFixed(2);
+
+        var totalTax = ptotal*0.06.toFixed(2);
+
+        document.getElementById("itemTotal").innerHTML = '$' + ptotalFix1;
+        document.getElementById("displaySubtotal").innerHTML = '$' + ptotalFix1;
+        document.getElementById("displaySalesTax").innerHTML = '$' + totalTax.toFixed(2);
+        document.getElementById("displayTotal").innerHTML = shipping + ptotal + totalTax;
+
+    }
+    <!--End java script sum-->
+
+</script>
 
 </body>
