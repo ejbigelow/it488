@@ -165,24 +165,29 @@
 
  ?>
         /*Fixed variables*/
-        var totalTax = ptotal1*0.06.toFixed(2);
         var shipping = Number(document.getElementById('cshipping').value);
 
         /*item totals */
-<?php
-    for ($i = 1;$i<=$inc;$i++) {
-            echo "        document.getElementById('itemTotal".$i."').innerHTML = '$' + ptotalFix".$i.";\n";
+        <?php
+            for ($i=1;$i<=$inc;$i++) {
+                    echo "        document.getElementById('itemTotal".$i."').innerHTML = '$' + ptotalFix".$i.";\n";
 
-    }
-?>
-        document.getElementById("itemTotal1").innerHTML = '$' + ptotalFix1;
+            }
+            echo "        /* Cart total */\n";
+            echo "         var subtotal = 0.00;\n";
+            for ($i =1;$i<=$inc;$i++) {
+            echo "          var subtotal = subtotal + ptotal".$i.";\n";
+            echo "            console.log(subtotal);\n";
+            }
+        ?>
         /* order sub total */
-      document.getElementById("displaySubtotal").innerHTML = '$' + ptotalFix1;
+        document.getElementById("displaySubtotal").innerHTML = '$' + subtotal.toFixed(2);
 
         /* display sales tax */
+        var totalTax = subtotal*0.06.toFixed(2);
         document.getElementById("displaySalesTax").innerHTML = '$' + totalTax.toFixed(2);
         /* display order total */
-        document.getElementById("displayTotal").innerHTML = shipping + ptotal1 + totalTax;
+        document.getElementById("displayTotal").innerHTML = shipping + subtotal + totalTax;
 
     }
     <!--End java script sum-->
