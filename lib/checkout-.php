@@ -60,7 +60,7 @@
                     </div>
                     <!--Loop items here-->
                     <?php
-                    $inc = 1;
+                    $inc = 3;
                     for ($i=1;$i<=$inc;$i++) {
                         echo "<!--Start or item" . $i . "-->\n";
 
@@ -73,12 +73,13 @@
                                 whirlygig
                             </div>
                             <div id="itemPrice" class="col-lg-2">
-                                <input type="text" class="form-control" name="price" id="price" value="1.00"
+                                <!-- make dynamic-->
+                                <input type="text" class="form-control" id="price<?php echo $i; ?>" value="1.00"
                                        readonly/><span></span>
                             </div>
                             <div id="itemQty" class="col-lg-2">
-                                <input onchange="findTotal()" type="text" class="form-control" id="qty"
-                                       placeholder="Qty"/>
+                                <!-- make dynamic-->
+                                <input onchange="findTotal()" type="text" class="form-control" id="qty<?php echo $i; ?>" />
                             </div>
                             <div id="itemTotal" class="col-lg-2 itemCartName">
                             </div>

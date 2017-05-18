@@ -3,8 +3,8 @@
     function findTotal(){
         <!--items multiplication-->
 
-        var qty1 = Number(document.getElementById('qty').value);
-        var price1 = Number(document.getElementById('price').value);
+        var qty1 = Number(document.getElementById('qty1').value);
+        var price1 = Number(document.getElementById('price1').value);
         var shipping = Number(document.getElementById('cshipping').value);
 
 
