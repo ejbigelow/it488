@@ -54,13 +54,13 @@
                         <div id="itemQtyHeader" class="col-lg-2">
                             Quantity
                         </div>
-                        <div id="itemTotalHeader" class="col-lg-2">
+                        <div id="itemTotalHeader" class="col-lg-2 text-center">
                             total
                         </div>
                     </div>
                     <!--Loop items here-->
                     <?php
-                    $inc = 1;
+                    $inc = 3;
                     for ($i=1;$i<=$inc;$i++) {
                         echo "<!--Start or item" . $i . "-->\n";
                         if ($i % 2 == 0) {
