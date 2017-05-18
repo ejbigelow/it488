@@ -59,23 +59,35 @@
                         </div>
                     </div>
                     <!--Loop items here-->
-                    <div class="row">
-                        <div id="itemPicture" class="col-lg-3">
-                            <img class="img-responsive" src="../img/242x200.png" alt="sample img"/>
+                    <?php
+                    $inc = 3;
+                    for ($i=1;$i<=$inc;$i++) {
+                        echo "<!--Start or item" . $i . "-->\n";
+
+                        ?>
+                        <div class="row">
+                            <div id="itemPicture" class="col-lg-3">
+                                <img class="img-responsive" src="../img/242x200.png" alt="sample img"/>
+                            </div>
+                            <div id="itemName" class="col-lg-2 itemCartName">
+                                whirlygig
+                            </div>
+                            <div id="itemPrice" class="col-lg-2">
+                                <!--Need unchangeable price implemented spanning price to signify to JS code this value we multiply across -->
+                                <input type="text" class="form-control" name="price" id="price" value="1.00"
+                                       readonly/><span></span>
+                            </div>
+                            <div id="itemQty" class="col-lg-2">
+                                <input onchange="findTotal()" type="text" class="form-control" id="qty"
+                                       placeholder="Qty"/>
+                            </div>
+                            <div id="itemTotal" class="col-lg-2 itemCartName">
+                            </div>
                         </div>
-                        <div id="itemName" class="col-lg-2 itemCartName">
-                            whirlygig
-                        </div>
-                        <div id="itemPrice" class="col-lg-2">
-                            <!--Need unchangeable price implemented spanning price to signify to JS code this value we multiply across -->
-                            <input type="text" class="form-control" name="price" id="price" value="1.00" readonly/><span></span>
-                        </div>
-                        <div id="itemQty" class="col-lg-2">
-                            <input  onchange="findTotal()"  type="text" class="form-control" id="qty" placeholder="Qty"/>
-                        </div>
-                        <div id="itemTotal" class="col-lg-2 itemCartName">
-                        </div>
-                    </div>
+                        <hr style="width: 50%"/>
+                        <?php
+                    }
+                    ?>
                     <!--End any loops here-->
                     <hr />
                     <!-- Totals -->
