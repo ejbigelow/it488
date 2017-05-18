@@ -60,7 +60,7 @@
                     </div>
                     <!--Loop items here-->
                     <?php
-                    $inc = 3;
+                    $inc = 1;
                     for ($i=1;$i<=$inc;$i++) {
                         echo "<!--Start or item" . $i . "-->\n";
                         if ($i % 2 == 0) {
@@ -92,7 +92,7 @@
                                 <!-- make dynamic-->
                                 <input onchange="findTotal()" type="text" class="form-control" id="qty<?php echo $i; ?>" />
                             </div>
-                            <div id="itemTotal" class="col-lg-2 itemCartName">
+                            <div id="itemTotal" class="col-lg-3 itemCartName text-right">
                             </div>
                         </div>
                         <hr style="width: 50%"/>
@@ -145,9 +145,12 @@
     function findTotal(){
         <!--items multiplication-->
         <?php
-        for ($i=1;$i<=1;$i++) {
+        for ($i=1;$i<=$inc;$i++) {
             echo "var qty".$i." = Number(document.getElementById('qty".$i."').value);\n";
-            echo "var price".$i." = Number(document.getElementById('price".$i."').value);\n";
+
+        }
+                for ($i=1;$i<=$inc;$i++) {
+            echo "        var price".$i." = Number(document.getElementById('price".$i."').value);\n";
 
         }
  ?>
@@ -155,8 +158,10 @@
 
         var ptotal=qty1*price1;
         var ptotalFix1 = ptotal.toFixed(2);
-
+        /*Fixed variables*/
         var totalTax = ptotal*0.06.toFixed(2);
+        var shipping = Number(document.getElementById('cshipping').value);
+
 
         document.getElementById("itemTotal").innerHTML = '$' + ptotalFix1;
         document.getElementById("displaySubtotal").innerHTML = '$' + ptotalFix1;
