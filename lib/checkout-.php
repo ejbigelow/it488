@@ -92,7 +92,7 @@
                                 <!-- make dynamic-->
                                 <input onchange="findTotal()" type="text" class="form-control" id="qty<?php echo $i; ?>" />
                             </div>
-                            <div id="itemTotal" class="col-lg-3 itemCartName text-right">
+                            <div id="itemTotal<?php echo $i; ?>" class="col-lg-3 itemCartName text-right">
                             </div>
                         </div>
                         <hr style="width: 50%"/>
@@ -122,13 +122,13 @@
                             </form>
                             <p id="displaySalesTax">&nbsp;</p>
                             <p id="displayTotal">&nbsp;</p>
+                        </div>
+                    </div>
+                    <p>*Based on your State's tax regulations we will include this amount into your fee on your State's behalf.</p>
                 </div>
             </div>
-            <p>*Based on your State's tax regulations we will include this amount into your fee on your State's behalf.</p>
         </div>
     </div>
-</div>
-</div>
 </div>
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-pull-6 col-sm-pull-6">
 
@@ -146,27 +146,43 @@
         <!--items multiplication-->
         <?php
         for ($i=1;$i<=$inc;$i++) {
-            echo "var qty".$i." = Number(document.getElementById('qty".$i."').value);\n";
+        echo "        var qty".$i." = Number(document.getElementById('qty".$i."').value);\n";
 
         }
-                for ($i=1;$i<=$inc;$i++) {
-            echo "        var price".$i." = Number(document.getElementById('price".$i."').value);\n";
+        for ($i=1;$i<=$inc;$i++) {
+        echo "        var price".$i." = Number(document.getElementById('price".$i."').value);\n";
 
         }
+        for ($i=1;$i<=$inc;$i++) {
+        echo "        var ptotal".$i."=qty".$i."*price".$i.";\n";
+        }
+        for ($i=1;$i<=$inc;$i++) {
+        echo "        var ptotalFix".$i." = ptotal".$i.".toFixed(2);\n";
+        }
+        echo "        /* Subtotal */\n";
+
+
+
  ?>
-        var shipping = Number(document.getElementById('cshipping').value);
-
-        var ptotal=qty1*price1;
-        var ptotalFix1 = ptotal.toFixed(2);
         /*Fixed variables*/
-        var totalTax = ptotal*0.06.toFixed(2);
+        var totalTax = ptotal1*0.06.toFixed(2);
         var shipping = Number(document.getElementById('cshipping').value);
 
+        /*item totals */
+<?php
+    for ($i = 1;$i<=$inc;$i++) {
+            echo "        document.getElementById('itemTotal".$i."').innerHTML = '$' + ptotalFix".$i.";\n";
 
-        document.getElementById("itemTotal").innerHTML = '$' + ptotalFix1;
-        document.getElementById("displaySubtotal").innerHTML = '$' + ptotalFix1;
+    }
+?>
+        document.getElementById("itemTotal1").innerHTML = '$' + ptotalFix1;
+        /* order sub total */
+      document.getElementById("displaySubtotal").innerHTML = '$' + ptotalFix1;
+
+        /* display sales tax */
         document.getElementById("displaySalesTax").innerHTML = '$' + totalTax.toFixed(2);
-        document.getElementById("displayTotal").innerHTML = shipping + ptotal + totalTax;
+        /* display order total */
+        document.getElementById("displayTotal").innerHTML = shipping + ptotal1 + totalTax;
 
     }
     <!--End java script sum-->
