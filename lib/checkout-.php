@@ -15,7 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
 
 
 </head>
@@ -42,7 +42,6 @@
                     Review Order <div class="pull-right"><small><a class="afix-1" href="index.html">cancel order</a></small></div>
                 </div>
                 <div class="panel-body">
-                    <!-- Loop here -->
                     <div class="row">
                         <div id="itemPictureHeader" class="col-lg-3">
                         </div>
@@ -59,11 +58,12 @@
                             total
                         </div>
                     </div>
+                    <!--Loop items here-->
                     <div class="row">
                         <div id="itemPicture" class="col-lg-3">
                             <img class="img-responsive" src="../img/242x200.png" alt="sample img"/>
                         </div>
-                        <div id="itemName" class="col-lg-2">
+                        <div id="itemName" class="col-lg-2 itemCartName">
                             whirlygig
                         </div>
                         <div id="itemPrice" class="col-lg-2">
@@ -73,7 +73,7 @@
                         <div id="itemQty" class="col-lg-2">
                             <input  onchange="findTotal()"  type="text" class="form-control" id="qty" placeholder="Qty"/>
                         </div>
-                        <div id="itemTotal" class="col-lg-2">
+                        <div id="itemTotal" class="col-lg-2 itemCartName">
                         </div>
                     </div>
                     <!--End any loops here-->
