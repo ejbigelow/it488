@@ -60,7 +60,7 @@
                     </div>
                     <!--Loop items here-->
                     <?php
-                    $inc = 3;
+                    $inc = 1;
                     for ($i=1;$i<=$inc;$i++) {
                         echo "<!--Start or item" . $i . "-->\n";
 
@@ -73,7 +73,6 @@
                                 whirlygig
                             </div>
                             <div id="itemPrice" class="col-lg-2">
-                                <!--Need unchangeable price implemented spanning price to signify to JS code this value we multiply across -->
                                 <input type="text" class="form-control" name="price" id="price" value="1.00"
                                        readonly/><span></span>
                             </div>
@@ -111,8 +110,6 @@
                             </form>
                             <p id="displaySalesTax">&nbsp;</p>
                             <p id="displayTotal">&nbsp;</p>
-                        </div>
-                    </div>
                 </div>
             </div>
             <p>*Based on your State's tax regulations we will include this amount into your fee on your State's behalf.</p>
@@ -128,7 +125,7 @@
 
 </div>
 
+<script src="../js/cart.js"></script>
 
 
 </body>
-<script src="../js/cart.js"></script>
