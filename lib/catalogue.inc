@@ -90,7 +90,7 @@ while ($r = $query->fetch()) {
                     <p class="visible-lg hidden-md hidden-sm hidden-xs"><?php echo stripcslashes($itemDesc); ?></p>
                     <p>Price: <?php echo $itemUnitPrice; ?></p>
                     <p>Category: <a href="index.php?page=catalogue&catalogID=<?php echo $itemCategory; ?>"><?php echo getCategory($itemCategory); ?></a></p>
-                    <a href="test/checkout.html" class="btn btn-primary"><span
+                    <a href="index.php?page=checkout&item=<?php echo $itemID;?>" class="btn btn-primary"><span
                             class="glyphicon glyphicon-shopping-cart align-left" aria-hidden="true"></span></a>
                     <a href="index.php?page=description&item=<?php echo $itemID; ?>" class="btn btn-default">view</a>
                 </div>

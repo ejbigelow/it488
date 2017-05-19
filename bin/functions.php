@@ -113,7 +113,7 @@ function getRows($table){
     while ($r = $query->fetch()) {
         $count = $count+1;
     }
-return $count;
+    return $count;
 }
 function getCategory($cat){
     include INC_ROOT . 'bin/sqlConnector.php';
@@ -139,7 +139,7 @@ function catImage($cat){
         echo $e;
     }
     while ($r = $query->fetch()) {
-       $img = $r['ImageID'];
+        $img = $r['ImageID'];
 
     }
 
@@ -153,11 +153,68 @@ function easyRead($n){
     else {
         echo "nope";
     }
-return;
+    return;
 
 }
+function addToCart($item){
+    if (!isset($_SESSION['item1'])) {
+        $_SESSION['item1'] = sanitize($item, null);
+    } else {
+        if (!isset($_SESSION['item2'])) {
+            $_SESSION['item2'] = sanitize($item, null);
+        } else {
+            if (!isset($_SESSION['item3'])) {
+                $_SESSION['item3'] = sanitize($item, null);
+            }
+            else {
+                if (!isset($_SESSION['item4'])){
+                    $_SESSION['item4'] = sanitize($item, null);
 
+                }
+                else {
+                    if (!isset($_SESSION['item5'])){
+                        $_SESSION['item5'] = sanitize($item, null);
 
+                    }
+                    else {
+
+                        if (!isset($_SESSION['item6'])){
+                            $_SESSION['item6'] = sanitize($item, null);
+
+                        }
+                        else {
+                            if (!isset($_SESSION['item7'])){
+                                $_SESSION['item7'] = sanitize($item, null);
+
+                            }
+                            else {
+
+                                if (!isset($_SESSION['item8'])){
+                                    $_SESSION['item8'] = sanitize($item, null);
+
+                                }
+                                else {
+
+                                    if (!isset($_SESSION['item9'])){
+                                        $_SESSION['item9'] = sanitize($item, null);
+
+                                    }
+                                    else {
+                                        echo "Error, please checkut first";
+
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+    return;
+}
 
 
 

@@ -36,7 +36,7 @@ while ($r = $query->fetch()) {
                     include INC_ROOT . 'inc/colorChart.php';
                 }
                 ?>
-                <img class="img-responsive" src="test/image.php?imgID=<?php echo $itemImage; ?>" alt="">
+                <img class="img-responsive" src="bin/image.php?imgID=<?php echo $itemImage; ?>" alt="">
             </div>
             <div class="col-sm-6 col-xs-6">
                 <div class="col-xs-12">Product name: <?php echo $itemName; ?></div>
@@ -54,7 +54,7 @@ while ($r = $query->fetch()) {
         <div class="form-group"><br/></div>
         <div class="form-group">
             <div class="col-sm-3 col-xs-3 text-left">
-                <a href="../test/checkout.html" class="btn btn-success"><span
+                <a href="index.php?page=checkout&item=<?php echo $itemID;?>" class="btn btn-success"><span
                         class="glyphicon glyphicon-shopping-cart align-left" aria-hidden="true">Buy</span></a>
 
                 <a href="index.php?page=catalogue" class="btn btn-default">Back</a>

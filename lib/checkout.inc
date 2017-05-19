@@ -1,3 +1,13 @@
+<?php
+if (isset($_GET['item'])) {
+    $item = sanitize($_GET['item'], null);
+    addToCart($item);
+}
+else {
+    echo "no item";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +40,7 @@
             </div>
             <div class="row">
                 <div style="display: table; margin: auto;">
-                    <span class="step step_complete"> <a href="index.html" class="check-bc">Home page</a></span>
+                    <span class="step step_complete"> <a href="index.php" class="check-bc">Home page</a></span>
                 </div>
             </div>
         </div>
@@ -39,7 +49,7 @@
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-push-6 col-sm-push-6">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    Review Order <div class="pull-right"><small><a class="afix-1" href="index.html">cancel order</a></small></div>
+                    Review Order <div class="pull-right"><small><a class="afix-1" href="index.php?page=destroy">cancel order</a></small></div>
                 </div>
                 <div class="panel-body">
                     <div class="row">
@@ -78,7 +88,7 @@
 
                         ">
                             <div id="itemPicture" class="col-lg-3">
-                                <img class="img-responsive" src="../img/242x200.png" alt="sample img"/>
+                                <img class="img-responsive" src="img/242x200.png" alt="sample img"/>
                             </div>
                             <div id="itemName" class="col-lg-2 itemCartName">
                                 whirlygig

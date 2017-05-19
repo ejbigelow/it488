@@ -5,6 +5,9 @@
  * Date: 3/29/17
  * Time: 11:54 AM
  */
+session_start();
+$_SESSION['cart'] = "enabled";
+//$_SESSION['item1'] = "item1";
 define('INC_ROOT', dirname(__DIR__). '/it488/') ;
 //PHP
 include INC_ROOT . 'bin/functions.php';
