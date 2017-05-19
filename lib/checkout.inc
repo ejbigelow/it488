@@ -3,7 +3,7 @@ if (isset($_GET['item'])) {
     $item = sanitize($_GET['item'], null);
     addToCart($item);
 }
-$testinc = $_SESSION['items'];
+//$cartInc = $_SESSION['items'];
 ?>
 <div class="container ">
     <div class="row cart-head">
