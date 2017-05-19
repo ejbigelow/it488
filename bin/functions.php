@@ -158,50 +158,52 @@ function easyRead($n){
 }
 function addToCart($item){
     if (!isset($_SESSION['item1'])) {
+        $items = array();
         $_SESSION['item1'] = sanitize($item, null);
+        $_SESSION['items'] = $_SESSION['items'] + 1;
+        array_push($items, $item);
     } else {
         if (!isset($_SESSION['item2'])) {
             $_SESSION['item2'] = sanitize($item, null);
+            $_SESSION['items'] = $_SESSION['items'] + 1;
         } else {
             if (!isset($_SESSION['item3'])) {
                 $_SESSION['item3'] = sanitize($item, null);
+                $_SESSION['items'] = $_SESSION['items'] + 1;
             }
             else {
                 if (!isset($_SESSION['item4'])){
                     $_SESSION['item4'] = sanitize($item, null);
-
+                    $_SESSION['items'] = $_SESSION['items'] + 1;
                 }
                 else {
                     if (!isset($_SESSION['item5'])){
                         $_SESSION['item5'] = sanitize($item, null);
-
+                        $_SESSION['items'] = $_SESSION['items'] + 1;
                     }
                     else {
 
                         if (!isset($_SESSION['item6'])){
                             $_SESSION['item6'] = sanitize($item, null);
-
+                            $_SESSION['items'] = $_SESSION['items'] + 1;
                         }
                         else {
                             if (!isset($_SESSION['item7'])){
                                 $_SESSION['item7'] = sanitize($item, null);
-
+                                $_SESSION['items'] = $_SESSION['items'] + 1;
                             }
                             else {
-
                                 if (!isset($_SESSION['item8'])){
                                     $_SESSION['item8'] = sanitize($item, null);
-
+                                    $_SESSION['items'] = $_SESSION['items'] + 1;
                                 }
                                 else {
-
                                     if (!isset($_SESSION['item9'])){
                                         $_SESSION['item9'] = sanitize($item, null);
-
+                                        $_SESSION['items'] = $_SESSION['items'] + 1;
                                     }
                                     else {
                                         echo "Error, please checkut first";
-
                                     }
                                 }
                             }
@@ -215,6 +217,73 @@ function addToCart($item){
     }
     return;
 }
-
-
+/*
+function cartToArray(){
+    $items = array();
+    if (isset($_SESSION['item1'])) {
+        array_push($items, $_SESSION['item1']);
+    }
+    if (isset($_SESSION['item2'])) {
+        array_push($items, $_SESSION['item2']);
+    }
+    if (isset($_SESSION['item3'])) {
+        array_push($items, $_SESSION['item3']);
+    }
+    if (isset($_SESSION['item4'])) {
+        array_push($items, $_SESSION['item4']);
+    }
+    if (isset($_SESSION['item5'])) {
+        array_push($items, $_SESSION['item5']);
+    }
+    if (isset($_SESSION['item6'])) {
+        array_push($items, $_SESSION['item6']);
+    }
+    if (isset($_SESSION['item7'])) {
+        array_push($items, $_SESSION['item7']);
+    }
+    if (isset($_SESSION['item8'])) {
+        array_push($items, $_SESSION['item8']);
+    }
+    if (isset($_SESSION['item9'])) {
+        array_push($items, $_SESSION['item9']);
+    }
+    echo "<pre>";
+    print_r($items);
+    echo "</pre>";
+    return;
+}
+*/
+function getItem($item, $ref) {
+    include INC_ROOT . 'bin/sqlConnector.php';
+    try {
+        $query = $handler->query("SELECT * FROM products WHERE ProductID='$item'");
+    }
+    catch(PDOException $e){
+        echo $e;
+    }
+    $count = 0;
+    while ($r = $query->fetch()) {
+        $itemID = $r['ProductID'];
+        $itemName = $r['ProductName'];
+        $itemImage = $r['ImageID'];
+        $itemDesc = addslashes($r['Description']);
+        $itemUnitPrice = $r['UnitPrice'];
+        $itemCategory = $r['CategoryID'];
+        $itemsinstock = $r['UnitsInstock'];
+    }
+    $itemID = $item;
+    if ($ref == 'name') {
+        $value = $itemName;
+    }
+    elseif ($ref == 'img') {
+        $value = $itemImage;
+    }
+    elseif ($ref == 'price') {
+        $value = $itemUnitPrice;
+    }
+    else {
+        $value = "no match";
+    }
+    return $value;
+}
 

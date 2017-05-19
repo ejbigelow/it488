@@ -12,6 +12,9 @@ var_dump($_SESSION['item6']);
 var_dump($_SESSION['item7']);
 var_dump($_SESSION['item8']);
 var_dump($_SESSION['item9']);
+var_dump($_SESSION['items']);
+echo "<pre>";
+    print_r($items);
 echo "</pre>\n</div>";
 ?>
 </body>

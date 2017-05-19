@@ -3,35 +3,12 @@ if (isset($_GET['item'])) {
     $item = sanitize($_GET['item'], null);
     addToCart($item);
 }
-else {
-    echo "no item";
+$testinc = $_SESSION['items'];
+for ($i=0;$i<$testinc;$i++) {
+echo "Value[".$i."]: ". cartToArray($i)."\n";
 }
+
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>ACME llc. Order form:
-        Checkout        </title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <link href="../css/custom.css" rel="stylesheet">
-
-
-</head>
-<body>
-
-
 <div class="container ">
     <div class="row cart-head">
         <div class="container">
@@ -70,8 +47,8 @@ else {
                     </div>
                     <!--Loop items here-->
                     <?php
-                    $inc = 2;
-                    for ($i=1;$i<=$inc;$i++) {
+                    $inc = $_SESSION['items'];
+                    for ($i=0;$i<=$inc;$i++) {
                         echo "<!--Start or item" . $i . "-->\n";
                         if ($i % 2 == 0) {
                             $even = 1;
@@ -84,18 +61,23 @@ else {
                         if (isset($even)) {
                             echo "evenRow";
                         }
-                        ?>
+                        $item = cartToArray($i);
+                       ?>
 
                         ">
                             <div id="itemPicture" class="col-lg-3">
-                                <img class="img-responsive" src="img/242x200.png" alt="sample img"/>
+                                <img class="img-responsive" src="bin/image.php?imgID=<?php echo getItem($item, img); ?>" alt="sample img"/>
                             </div>
                             <div id="itemName" class="col-lg-2 itemCartName">
-                                whirlygig
+                                <?php
+                                echo "item: ".$item;
+                                echo getItem($item, name);
+
+                                ?>
                             </div>
                             <div id="itemPrice" class="col-lg-2">
                                 <!-- make dynamic-->
-                                <input type="text" class="form-control" id="price<?php echo $i; ?>" value="1.00"
+                                <input type="text" class="form-control" id="price<?php echo $i; ?>" value="<?php echo getItem($item, price)?>"
                                        readonly/><span></span>
                             </div>
                             <div id="itemQty" class="col-lg-2">
@@ -205,3 +187,42 @@ else {
 </script>
 
 </body>
+<?php
+function cartToArray($pointer){
+    $items = array();
+    if (isset($_SESSION['item1'])) {
+        array_push($items, $_SESSION['item1']);
+    }
+    if (isset($_SESSION['item2'])) {
+        array_push($items, $_SESSION['item2']);
+    }
+    if (isset($_SESSION['item3'])) {
+        array_push($items, $_SESSION['item3']);
+    }
+    if (isset($_SESSION['item4'])) {
+        array_push($items, $_SESSION['item4']);
+    }
+    if (isset($_SESSION['item5'])) {
+        array_push($items, $_SESSION['item5']);
+    }
+    if (isset($_SESSION['item6'])) {
+        array_push($items, $_SESSION['item6']);
+    }
+    if (isset($_SESSION['item7'])) {
+        array_push($items, $_SESSION['item7']);
+    }
+    if (isset($_SESSION['item8'])) {
+        array_push($items, $_SESSION['item8']);
+    }
+    if (isset($_SESSION['item9'])) {
+        array_push($items, $_SESSION['item9']);
+    }
+    $value = $items[$pointer];
+    /*
+    echo "<pre>";
+    print_r($items);
+    echo "</pre>";
+    */
+    return $value;
+}
+?>
