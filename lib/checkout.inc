@@ -27,7 +27,7 @@ if (isset($cartOverLoad)) {
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-push-6 col-sm-push-6">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    Review Order <div class="pull-right"><small><a class="afix-1" href="index.php?page=destroy">cancel order</a></small></div>
+                    Review Order <div class="pull-right"><small><a class="afix-1" href="lib/destroy.php">cancel order</a></small></div>
                 </div>
                 <div class="panel-body">
                     <div class="row">
