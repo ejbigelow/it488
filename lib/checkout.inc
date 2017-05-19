@@ -1,7 +1,21 @@
 <?php
-if (isset($_GET['item'])) {
-    $item = sanitize($_GET['item'], null);
-    addToCart($item);
+
+    if (isset($_GET['item'])) {
+        $item = sanitize($_GET['item'], null);
+        addToCart($item);
+        if (!isset($_COOKIE['username'])) {
+            echo 'please login to continue';
+            include INC_ROOT . 'lib/logon.php';
+            exit;
+        }
+        else {}
+}
+else{
+    if (!isset($_COOKIE['username'])) {
+        echo 'please login to continue';
+        include INC_ROOT . 'lib/logon.php';
+        exit;
+    }
 }
 //$cartInc = $_SESSION['items'];
 ?>
@@ -22,7 +36,7 @@ if (isset($_GET['item'])) {
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-push-6 col-sm-push-6">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    Review Order <div class="pull-right"><small><a class="afix-1" href="bin/destroyCart.php">cancel order</a></small></div>
+                    <a href="index.php?page=catalogue">Add more items</a><div class="pull-right"><small><a class="afix-1" href="bin/destroyCart.php">cancel order</a></small></div>
                 </div>
                 <div class="panel-body">
                     <div class="row">
@@ -73,7 +87,7 @@ if (isset($_GET['item'])) {
                                        readonly/><span></span>
                             </div>
                             <div id="itemQty" class="col-lg-2">
-                                <input onchange="findTotal()" type="text" class="form-control" id="qty<?php echo $i; ?>" />
+                                <input onchange="findTotal()" type="text" class="form-control" id="qty<?php echo $i; ?>" value="1"/>
                             </div>
                             <div id="itemTotal<?php echo $i; ?>" class="col-lg-3 itemCartName text-right">
                             </div>
@@ -168,5 +182,11 @@ if (isset($_GET['item'])) {
         document.getElementById("displayTotal").innerHTML = total.toFixed(2);
     }
     <!--End java script sum-->
+</script>
+<script type="text/javascript">
+    window.onload = function () {
+        findTotal();
+    }
+
 </script>
 </body>
