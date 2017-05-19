@@ -60,7 +60,7 @@
                     </div>
                     <!--Loop items here-->
                     <?php
-                    $inc = 3;
+                    $inc = 2;
                     for ($i=1;$i<=$inc;$i++) {
                         echo "<!--Start or item" . $i . "-->\n";
                         if ($i % 2 == 0) {
