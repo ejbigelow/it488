@@ -1,14 +1,14 @@
 <?php
 
-    if (isset($_GET['item'])) {
-        $item = sanitize($_GET['item'], null);
-        addToCart($item);
-        if (!isset($_COOKIE['username'])) {
-            echo 'please login to continue';
-            include INC_ROOT . 'lib/logon.php';
-            exit;
-        }
-        else {}
+if (isset($_GET['item'])) {
+    $item = sanitize($_GET['item'], null);
+    addToCart($item);
+    if (!isset($_COOKIE['username'])) {
+        echo 'please login to continue';
+        include INC_ROOT . 'lib/logon.php';
+        exit;
+    }
+    else {}
 }
 else{
     if (!isset($_COOKIE['username'])) {
@@ -17,11 +17,10 @@ else{
         exit;
     }
 }
-//$cartInc = $_SESSION['items'];
+include INC_ROOT . 'bin/addOrder.php';
 ?>
 <div class="container ">
     <div class="row cart-head">
-        <div class="container">
             <div class="row">
                 <p></p>
             </div>
@@ -71,12 +70,12 @@ else{
                             echo "evenRow";
                         }
                         $item = cartToArray($i);
-                       ?>
+                        ?>
 
                         ">
                             <div id="itemPicture" class="col-lg-3">
                                 <a href="index.php?page=description&item=<?php echo cartToArray($i); ?>">
-                                <img class="img-responsive" src="bin/image.php?imgID=<?php echo getItem($item, img); ?>" alt="sample img"/>
+                                    <img class="img-responsive" src="bin/image.php?imgID=<?php echo getItem($item, img); ?>" alt="sample img"/>
                                 </a>
                             </div>
                             <div id="itemName" class="col-lg-2 itemCartName">
@@ -110,22 +109,20 @@ else{
                         </div>
                         <div class="col-lg-3 text-right">
                             <p id="displaySubtotal">&nbsp;</p>
-                            <form>
                                 <select class="form-control" onchange="findTotal()" id="cshipping">
                                     <option value="0.00" selected>Free (+&dollar;0.00)</option>
                                     <option value="10.00">First Class (+&dollar;10.00)</option>
                                     <option value="20.00">Next Day Air (+&dollar;20.00)</option>
                                 </select>
-                            </form>
                             <p id="displaySalesTax">&nbsp;</p>
                             <p id="displayTotal">&nbsp;</p>
                         </div>
-                        <div class="text-right">
+                        <form action="index.php?page=checkout" method="post" class="text-right">
                             <!-- Button submit-->
-                            <button class="btn btn-success">Submit Order</button>
+                            <button class="btn btn-success" id="insertOrder" name="insertOrder">Submit Order</button>
                             <!-- Button reset -->
                             <a href="bin/destroyCart.php" class="btn btn-primary">Reset</a>
-                        </div>
+                        </form>
                         <p>*Based on your State's tax regulations we will include this amount into your fee on your State's behalf.</p>
                     </div>
                 </div>
