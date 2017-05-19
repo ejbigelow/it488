@@ -203,7 +203,11 @@ function addToCart($item){
                                         $_SESSION['items'] = $_SESSION['items'] + 1;
                                     }
                                     else {
-                                        echo "Error, please checkut first";
+                                        echo "<script>";
+                                        echo "alert('Please empty your cart or submit order!');";
+                                        echo "</script>";
+
+
                                     }
                                 }
                             }

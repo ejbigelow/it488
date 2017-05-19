@@ -70,6 +70,10 @@ include INC_ROOT . 'bin/highlink.php';
                 <?php echo $catalogue;?><a href="index.php?page=catalogue">Catalogue</a></li>
                 <?php echo $events; ?><a href="index.php?page=events">Events</a></li>
                 <?php echo $help; ?><a href="index.php?page=help">Help</a></li>
+                <?php if (isset($_SESSION['item1'])) {
+                    echo "<li><a href='index.php?page=checkout'>View cart</a></li>";
+                }
+                ?>
             </ul>
             <!-- This entire section will remain hidden during phase1 but will be accessible via URL and challenge -->
             <ul class="nav navbar-nav navbar-right">

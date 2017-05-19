@@ -4,10 +4,11 @@ if (isset($_GET['item'])) {
     addToCart($item);
 }
 $testinc = $_SESSION['items'];
-for ($i=0;$i<$testinc;$i++) {
-echo "Value[".$i."]: ". cartToArray($i)."\n";
-}
 
+if (isset($cartOverLoad)) {
+
+
+}
 ?>
 <div class="container ">
     <div class="row cart-head">
@@ -48,7 +49,7 @@ echo "Value[".$i."]: ". cartToArray($i)."\n";
                     <!--Loop items here-->
                     <?php
                     $inc = $_SESSION['items'];
-                    for ($i=0;$i<=$inc;$i++) {
+                    for ($i=0;$i<$inc;$i++) {
                         echo "<!--Start or item" . $i . "-->\n";
                         if ($i % 2 == 0) {
                             $even = 1;
@@ -70,9 +71,7 @@ echo "Value[".$i."]: ". cartToArray($i)."\n";
                             </div>
                             <div id="itemName" class="col-lg-2 itemCartName">
                                 <?php
-                                echo "item: ".$item;
                                 echo getItem($item, name);
-
                                 ?>
                             </div>
                             <div id="itemPrice" class="col-lg-2">
@@ -137,18 +136,18 @@ echo "Value[".$i."]: ". cartToArray($i)."\n";
     function findTotal(){
         <!--items multiplication-->
         <?php
-        for ($i=1;$i<=$inc;$i++) {
+        for ($i=0;$i<$inc;$i++) {
         echo "        var qty".$i." = Number(document.getElementById('qty".$i."').value);\n";
 
         }
-        for ($i=1;$i<=$inc;$i++) {
+        for ($i=0;$i<$inc;$i++) {
         echo "        var price".$i." = Number(document.getElementById('price".$i."').value);\n";
 
         }
-        for ($i=1;$i<=$inc;$i++) {
+        for ($i=0;$i<$inc;$i++) {
         echo "        var ptotal".$i."=qty".$i."*price".$i.";\n";
         }
-        for ($i=1;$i<=$inc;$i++) {
+        for ($i=0;$i<$inc;$i++) {
         echo "        var ptotalFix".$i." = ptotal".$i.".toFixed(2);\n";
         }
         echo "        /* Subtotal */\n";
@@ -161,13 +160,13 @@ echo "Value[".$i."]: ". cartToArray($i)."\n";
 
         /*item totals */
         <?php
-            for ($i=1;$i<=$inc;$i++) {
+            for ($i=0;$i<$inc;$i++) {
                     echo "        document.getElementById('itemTotal".$i."').innerHTML = '$' + ptotalFix".$i.";\n";
 
             }
             echo "        /* Cart total */\n";
             echo "         var subtotal = 0.00;\n";
-            for ($i =1;$i<=$inc;$i++) {
+            for ($i =0;$i<$inc;$i++) {
             echo "          var subtotal = subtotal + ptotal".$i.";\n";
             echo "            console.log(subtotal);\n";
             }
