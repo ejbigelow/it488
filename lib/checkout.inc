@@ -75,7 +75,9 @@ else{
 
                         ">
                             <div id="itemPicture" class="col-lg-3">
+                                <a href="index.php?page=description&item=<?php echo cartToArray($i); ?>">
                                 <img class="img-responsive" src="bin/image.php?imgID=<?php echo getItem($item, img); ?>" alt="sample img"/>
+                                </a>
                             </div>
                             <div id="itemName" class="col-lg-2 itemCartName">
                                 <?php
@@ -118,22 +120,22 @@ else{
                             <p id="displaySalesTax">&nbsp;</p>
                             <p id="displayTotal">&nbsp;</p>
                         </div>
+                        <div class="text-right">
+                            <!-- Button submit-->
+                            <button class="btn btn-success">Submit Order</button>
+                            <!-- Button reset -->
+                            <a href="bin/destroyCart.php" class="btn btn-primary">Reset</a>
+                        </div>
+                        <p>*Based on your State's tax regulations we will include this amount into your fee on your State's behalf.</p>
                     </div>
-                    <p>*Based on your State's tax regulations we will include this amount into your fee on your State's behalf.</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-pull-6 col-sm-pull-6">
-
-</div>
 <div class="row cart-footer">
 
 </div>
-<!--
-<script src="../js/cart.js"></script>
--->
 <script type="text/javascript">
     <!--java script total formula-->
     function findTotal(){

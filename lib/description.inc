@@ -53,11 +53,19 @@ while ($r = $query->fetch()) {
         <div class="form-group"><br/></div>
         <div class="form-group"><br/></div>
         <div class="form-group">
+            <?php
+            $return = $_SERVER['HTTP_REFERER'];
+            $checkReturn = substr_count("$return", "checkout");
+            if ($checkReturn == 1) {
+                $return = "http://67.253.94.5/it488/index.php?page=checkout";
+            }
+            else {
+            }
+            ?>
             <div class="col-sm-3 col-xs-3 text-left">
                 <a href="index.php?page=checkout&item=<?php echo $itemID;?>" class="btn btn-success"><span
                         class="glyphicon glyphicon-shopping-cart align-left" aria-hidden="true">Buy</span></a>
-
-                <a href="index.php?page=catalogue" class="btn btn-default">Back</a>
+                <a href="<?php echo $return; ?>" class="btn btn-default">Back</a>
             </div>
         </div>
 
