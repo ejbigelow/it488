@@ -4,11 +4,6 @@ if (isset($_GET['item'])) {
     addToCart($item);
 }
 $testinc = $_SESSION['items'];
-
-if (isset($cartOverLoad)) {
-
-
-}
 ?>
 <div class="container ">
     <div class="row cart-head">
@@ -27,7 +22,7 @@ if (isset($cartOverLoad)) {
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-push-6 col-sm-push-6">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    Review Order <div class="pull-right"><small><a class="afix-1" href="lib/destroy.php">cancel order</a></small></div>
+                    Review Order <div class="pull-right"><small><a class="afix-1" href="bin/destroyCart.php">cancel order</a></small></div>
                 </div>
                 <div class="panel-body">
                     <div class="row">
@@ -50,7 +45,6 @@ if (isset($cartOverLoad)) {
                     <?php
                     $inc = $_SESSION['items'];
                     for ($i=0;$i<$inc;$i++) {
-                        echo "<!--Start or item" . $i . "-->\n";
                         if ($i % 2 == 0) {
                             $even = 1;
                         }
@@ -75,12 +69,10 @@ if (isset($cartOverLoad)) {
                                 ?>
                             </div>
                             <div id="itemPrice" class="col-lg-2">
-                                <!-- make dynamic-->
                                 <input type="text" class="form-control" id="price<?php echo $i; ?>" value="<?php echo getItem($item, price)?>"
                                        readonly/><span></span>
                             </div>
                             <div id="itemQty" class="col-lg-2">
-                                <!-- make dynamic-->
                                 <input onchange="findTotal()" type="text" class="form-control" id="qty<?php echo $i; ?>" />
                             </div>
                             <div id="itemTotal<?php echo $i; ?>" class="col-lg-3 itemCartName text-right">
@@ -90,11 +82,9 @@ if (isset($cartOverLoad)) {
                         <?php
                     }
                     ?>
-                    <!--End any loops here-->
                     <hr />
                     <!-- Totals -->
                     <div class="row" id="Totals">
-                        <!--leave left blank-->
                         <div class="col-lg-6"></div>
                         <div class="col-lg-3 text-right">
                             <p>Sub Total:</p>
@@ -132,7 +122,6 @@ if (isset($cartOverLoad)) {
 -->
 <script type="text/javascript">
     <!--java script total formula-->
-
     function findTotal(){
         <!--items multiplication-->
         <?php
@@ -151,8 +140,6 @@ if (isset($cartOverLoad)) {
         echo "        var ptotalFix".$i." = ptotal".$i.".toFixed(2);\n";
         }
         echo "        /* Subtotal */\n";
-
-
 
  ?>
         /*Fixed variables*/
@@ -173,21 +160,18 @@ if (isset($cartOverLoad)) {
         ?>
         /* order sub total */
         document.getElementById("displaySubtotal").innerHTML = '$' + subtotal.toFixed(2);
-
         /* display sales tax */
         var totalTax = subtotal*0.06.toFixed(2);
         document.getElementById("displaySalesTax").innerHTML = '$' + totalTax.toFixed(2);
         /* display order total */
         var total = shipping + subtotal + totalTax;
         document.getElementById("displayTotal").innerHTML = total.toFixed(2);
-
     }
     <!--End java script sum-->
-
 </script>
-
 </body>
 <?php
+/*
 function cartToArray($pointer){
     $items = array();
     if (isset($_SESSION['item1'])) {
@@ -222,7 +206,8 @@ function cartToArray($pointer){
     echo "<pre>";
     print_r($items);
     echo "</pre>";
-    */
+
     return $value;
 }
+*/
 ?>

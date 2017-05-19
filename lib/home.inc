@@ -63,9 +63,6 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-
-
-<---CATEGORIES STARTS HERE-->
 <div class="row center-block">
     <?php
     include INC_ROOT . 'bin/sqlConnector.php';

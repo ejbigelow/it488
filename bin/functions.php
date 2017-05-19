@@ -221,8 +221,7 @@ function addToCart($item){
     }
     return;
 }
-/*
-function cartToArray(){
+function cartToArray($pointer){
     $items = array();
     if (isset($_SESSION['item1'])) {
         array_push($items, $_SESSION['item1']);
@@ -251,12 +250,15 @@ function cartToArray(){
     if (isset($_SESSION['item9'])) {
         array_push($items, $_SESSION['item9']);
     }
+    $value = $items[$pointer];
+    /*
     echo "<pre>";
     print_r($items);
     echo "</pre>";
-    return;
+    */
+    return $value;
 }
-*/
+
 function getItem($item, $ref) {
     include INC_ROOT . 'bin/sqlConnector.php';
     try {
