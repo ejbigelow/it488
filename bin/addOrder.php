@@ -19,6 +19,24 @@ else {
         echo "</pre>";
     }
     if (isset($_POST['insertOrder'])) {
+        echo 'sub';
+        include INC_ROOT . 'bin/sqlConnector.php';
+        $user = sanitize($_COOKIE['UID'], null);
+        $sql = "INSERT INTO orders (CustomerID,	OrderDate)
+        VALUES ('$user', NOW())";
+        try {
+            $handler->query($sql);
+            $alert = 1;
+            $type = "alert-success text-success alert-dismissible";
+            $text = "You have successfully registered!";
+
+        }
+        catch(PDOException $e) {
+            $alert = 1;
+            $type = "alert-danger text-danger alert-dismissible";
+            $text = $e->getMessage();
+        }
+        
         $inc = $_SESSION['items'];
         echo 'User ' . sanitize($_COOKIE['UID'], null) . ' Ordered these items.<br />';
         for ($i = 0; $i < $inc; $i++) {
