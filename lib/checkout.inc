@@ -178,7 +178,8 @@ if (isset($cartOverLoad)) {
         var totalTax = subtotal*0.06.toFixed(2);
         document.getElementById("displaySalesTax").innerHTML = '$' + totalTax.toFixed(2);
         /* display order total */
-        document.getElementById("displayTotal").innerHTML = shipping + subtotal + totalTax;
+        var total = shipping + subtotal + totalTax;
+        document.getElementById("displayTotal").innerHTML = total.toFixed(2);
 
     }
     <!--End java script sum-->
