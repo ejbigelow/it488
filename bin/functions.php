@@ -293,3 +293,42 @@ function getItem($item, $ref) {
     return $value;
 }
 
+function insertOrderItems($order, $item, $itemPrice){
+    include INC_ROOT . 'bin/sqlConnector.php';
+    $sql = "INSERT INTO order_details (OrderID,	ProductID,	Quantity,	UnitPrice)
+        VALUES ('$order','$item','1','$itemPrice')";            try {
+        $handler->query($sql);
+        $alert = 1;
+        $type = "alert-success text-success alert-dismissible";
+        $text = "You have successfully registered!";
+        $_SESSION['cartSubmitted'] = 1;
+    } catch (PDOException $e) {
+        $alert = 1;
+        $type = "alert-danger text-danger alert-dismissible";
+        $text = $e->getMessage();
+    }
+
+return;
+
+}
+//Start here orders.inc
+function getOrders($uid) {
+    echo 'chking orders<br />';
+    include INC_ROOT . 'bin/sqlConnector.php';
+    try {
+        $query = $handler->query("SELECT * FROM orders WHERE CustomerID='$uid'");
+    }
+    catch(PDOException $e){
+        echo $e;
+    }
+    $i = 1;
+    while ($r = $query->fetch()) {
+        if ($uid == $r['CustomerID']) {
+            echo "<a href=\"index.php?page=orders&orderID=".$r['OrderID']."\">".$r['OrderID']."</a><br />";
+        }
+        else {
+        }
+    }
+    return;
+
+}

@@ -19,29 +19,45 @@ else {
         echo "</pre>";
     }
     if (isset($_POST['insertOrder'])) {
-        echo 'sub';
-        include INC_ROOT . 'bin/sqlConnector.php';
-        $user = sanitize($_COOKIE['UID'], null);
-        $sql = "INSERT INTO orders (CustomerID,	OrderDate)
+        if ($_SESSION['cartSubmitted'] == 1) {
+            echo 'There has been a submission for this order. Please click Orders above.';
+        }
+        /* Insert Order into Database if not already submitted for this session */
+        else {
+            include INC_ROOT . 'bin/sqlConnector.php';
+            $user = sanitize($_COOKIE['UID'], null);
+            $sql = "INSERT INTO orders (CustomerID,	OrderDate)
         VALUES ('$user', NOW())";
+            try {
+                $handler->query($sql);
+                $alert = 1;
+                $type = "alert-success text-success alert-dismissible";
+                $text = "You have successfully registered!";
+                $_SESSION['cartSubmitted'] = 1;
+            } catch (PDOException $e) {
+                $alert = 1;
+                $type = "alert-danger text-danger alert-dismissible";
+                $text = $e->getMessage();
+            }
+        }
+        /* Get Order number to insert with all items */
         try {
-            $handler->query($sql);
-            $alert = 1;
-            $type = "alert-success text-success alert-dismissible";
-            $text = "You have successfully registered!";
+            $query = $handler->query("SELECT * FROM orders ORDER BY OrderID DESC Limit 1");
+        }
+        catch(PDOException $e){
+            echo $e;
+        }
+        while ($r = $query->fetch()) {
+            $last = $r['OrderID'];
 
         }
-        catch(PDOException $e) {
-            $alert = 1;
-            $type = "alert-danger text-danger alert-dismissible";
-            $text = $e->getMessage();
-        }
-        
+
         $inc = $_SESSION['items'];
-        echo 'User ' . sanitize($_COOKIE['UID'], null) . ' Ordered these items.<br />';
         for ($i = 0; $i < $inc; $i++) {
             $item = cartToArray($i);
-            echo getItem($item, name) . "<br />";
+            $itemPrice = getItem($item, price);
+            insertOrderItems($last, $item, $itemPrice);
+
         }
     }
 }

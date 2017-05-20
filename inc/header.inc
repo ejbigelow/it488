@@ -88,7 +88,7 @@ include INC_ROOT . 'bin/highlink.php';
                 <!--User Sign-up/ Orders link -->
                 <?php
                 if (isset($_COOKIE['name']) && $_COOKIE['userLevel'] < 5) {
-                    echo "<li><a data-toggle=\"modal\" href=\"index.php?page=checkout\"><span class=\"hidden-sm\"></span>Orders</a></li>";
+                    echo "<li><a data-toggle=\"modal\" href=\"index.php?page=orders\"><span class=\"hidden-sm\"></span>Orders</a></li>";
                 }
                 elseif (isset($_COOKIE['name']) && $_COOKIE['userLevel'] == 5) {
                     echo "<li class=\"dropdown\">";
