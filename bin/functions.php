@@ -311,10 +311,43 @@ function insertOrderItems($order, $item, $itemPrice){
 return;
 
 }
-//Start here orders.inc
-function getOrders($uid) {
-    echo 'chking orders<br />';
+
+function getTotalOrders($uid) {
     include INC_ROOT . 'bin/sqlConnector.php';
+
+    try {
+        $query = $handler->query("SELECT * FROM orders WHERE CustomerID='$uid'");
+    }
+    catch(PDOException $e){
+        echo $e;
+    }
+    $value = 0;
+    while ($r = $query->fetch()) {
+        if ($uid == $r['CustomerID']) {
+            $value++;
+        }
+        else {
+        }
+    }
+
+    return $value;
+
+}
+function getOrders($uid) {
+    include INC_ROOT . 'bin/sqlConnector.php';
+    try {
+        $query = $handler->query("SELECT * FROM users WHERE userID='$uid'");
+    }
+    catch(PDOException $e){
+        echo $e;
+    }
+    while ($r = $query->fetch()) {
+        if ($uid == $r['UserID']) {
+            $username = $r['FirstName']. " ". $r['LastName'];
+        }
+        else {
+        }
+    }
     try {
         $query = $handler->query("SELECT * FROM orders WHERE CustomerID='$uid'");
     }
@@ -324,11 +357,23 @@ function getOrders($uid) {
     $i = 1;
     while ($r = $query->fetch()) {
         if ($uid == $r['CustomerID']) {
-            echo "<a href=\"index.php?page=orders&orderID=".$r['OrderID']."\">".$r['OrderID']."</a><br />";
+            echo "    <tr class='clickable-row tableRowHighlight text-center' data-href=\"index.php?page=orders&orderID=".$r['OrderID']."\" class=\"text-center\">\n";
+            echo "       <td>\n";
+            echo           $r['OrderID']."\n";
+            echo "       </td>\n";
+            echo "       <td>\n";
+            echo           $username."\n";
+            echo "       </td>\n";
+            echo "       <td>\n";
+            echo          $r['OrderDate']."\n";
+            echo "       </td>\n";
+            echo "    </tr>\n";
+
         }
         else {
         }
     }
+
     return;
 
 }
