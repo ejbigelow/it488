@@ -44,12 +44,22 @@ include INC_ROOT . 'bin/highlink.php';
     <div class="container-fluid">
         <!-- Logo -->
         <div class="navbar-header">
+
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".mainMenu">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="index.php" class="navbar-brand hidden-sm"></a>
+            <?php
+            if (isset($_COOKIE['name'])) {
+                echo "<a href=\"index.php\" class=\"navbar-brand hidden-sm\">".$_COOKIE['name']."</a>";
+
+            }
+            else {
+                echo "<a href=\"index.php\" class=\"navbar-brand hidden-sm\">ORDERS.COM</a>";
+            }
+            ?>
+
         </div>
         <!-- Menu Items -->
         <div class="collapse navbar-collapse mainMenu">
@@ -60,6 +70,10 @@ include INC_ROOT . 'bin/highlink.php';
                 <?php echo $catalogue;?><a href="index.php?page=catalogue">Catalogue</a></li>
                 <?php echo $events; ?><a href="index.php?page=events">Events</a></li>
                 <?php echo $help; ?><a href="index.php?page=help">Help</a></li>
+                <?php if (isset($_SESSION['item1'])) {
+                    echo "<li><a href='index.php?page=checkout'>View cart</a></li>";
+                }
+                ?>
             </ul>
             <!-- This entire section will remain hidden during phase1 but will be accessible via URL and challenge -->
             <ul class="nav navbar-nav navbar-right">
@@ -71,17 +85,41 @@ include INC_ROOT . 'bin/highlink.php';
                         <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                     </form>
                 </li>
-                <!--User Sign-up -->
-                <li><a data-toggle="modal" href="#myModal"><span class="glyphicon glyphicon-user"></span><span class="hidden-sm"> Sign Up</span></a></li>
+                <!--User Sign-up/ Orders link -->
+                <?php
+                if (isset($_COOKIE['name']) && $_COOKIE['userLevel'] < 5) {
+                    echo "<li><a data-toggle=\"modal\" href=\"index.php?page=orders\"><span class=\"hidden-sm\"></span>Orders</a></li>";
+                }
+                elseif (isset($_COOKIE['name']) && $_COOKIE['userLevel'] == 5) {
+                    echo "<li class=\"dropdown\">";
+                    echo "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><span class=\"glyphicon glyphicon-cog\"></span><span class=\"hidden-sm\">Admin menu</span> <span class=\"caret\"> </span></a>";
+                    echo "<ul id=\"login-dp\" class=\"dropdown-menu\">";
+                    echo "<li><a href=\"index.php?page=addproduct\">Add product</a>";
+                    echo "</ul>";
+                }
+                else {
+                    echo "<li><a data-toggle=\"modal\" href=\"#myModal\"><span class=\"glyphicon glyphicon-user\"></span><span class=\"hidden-sm\"> Sign Up</span></a></li>";
+
+                }
+                ?>
+
                 <!--User logon -->
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span><span class="hidden-sm">  Login</span> <span class="caret"></span></a>
-                    <ul id="login-dp" class="dropdown-menu">
-                        <li>
-                            <?php include INC_ROOT . "lib/logon.php" ?>
-                        </li>
-                    </ul>
-                </li>
+                <?php
+                if (isset($_COOKIE['name'])) {
+                    echo "<li><a href=\"index.php?page=logout\"><span class=\"glyphicon glyphicon-log-in\"></span><span class=\"hidden-sm\">  Logout</span></a></li>";
+                }
+                else {
+
+                    echo "<li class=\"dropdown\">";
+                    echo "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><span class=\"glyphicon glyphicon-log-in\"></span><span class=\"hidden-sm\">  Login</span> <span class=\"caret\"></span></a>";
+                    echo "<ul id=\"login-dp\" class=\"dropdown-menu\">";
+                    echo "<li>";
+                    include INC_ROOT . "lib/logon.php";
+                    echo "</li>";
+                }
+                ?>
+            </ul>
+            </li>
             </ul>
             <!-- Stop hiding here -->
         </div>

@@ -27,13 +27,12 @@
     ?>
     <?php
     if (isset($page)) {
-        $file = INC_ROOT. sanitize($page,null). ".inc";
 
-        include $file;
-
+            $file = INC_ROOT . "lib/" . sanitize($page, null) . ".inc";
+            include $file;
     }
     else {
-        include INC_ROOT. 'lib/home.inc';
+        include INC_ROOT . 'lib/home.inc';
 
     }
     ?>
