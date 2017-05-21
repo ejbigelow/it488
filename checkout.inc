@@ -22,8 +22,9 @@ include INC_ROOT . 'bin/addOrder.php';
 <div class="container ">
     <div class="row cart-head">
             <div class="row">
-                <form action="index.php?page=checkout" method="post">
-
+                <p></p>
+            </div>
+            <div class="row">
                 <div style="display: table; margin: auto;">
                     <span class="step step_complete"> <a href="index.php" class="check-bc">Home page</a></span>
                 </div>
@@ -108,7 +109,7 @@ include INC_ROOT . 'bin/addOrder.php';
                         </div>
                         <div class="col-lg-3 text-right">
                             <p id="displaySubtotal">&nbsp;</p>
-                                <select class="form-control" onchange="findTotal()" name="cshipping" id="cshipping">
+                                <select class="form-control" onchange="findTotal()" id="cshipping">
                                     <option value="0.00" selected>Free (+&dollar;0.00)</option>
                                     <option value="10.00">First Class (+&dollar;10.00)</option>
                                     <option value="20.00">Next Day Air (+&dollar;20.00)</option>
@@ -116,22 +117,16 @@ include INC_ROOT . 'bin/addOrder.php';
                             <p id="displaySalesTax">&nbsp;</p>
                             <p id="displayTotal">&nbsp;</p>
                         </div>
-                        <!-- <form action="index.php?page=checkout" method="post" class="text-right">-->
-                        <div class="text-right">
+                        <form action="index.php?page=checkout" method="post" class="text-right">
+                            <!-- Button submit-->
                             <button class="btn btn-success" id="insertOrder" name="insertOrder">Submit Order</button>
                             <!-- Button reset -->
                             <a href="bin/destroyCart.php" class="btn btn-primary">Reset</a>
-                        </div>
-                            <!-- Button submit-->
-
                         </form>
+                        <p>*Based on your State's tax regulations we will include this amount into your fee on your State's behalf.</p>
                     </div>
-
                 </div>
-
             </div>
-            <p>*Based on your State's tax regulations we will include this amount into your fee on your State's behalf.</p>
-
         </div>
     </div>
 </div>

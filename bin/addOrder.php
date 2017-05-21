@@ -6,7 +6,7 @@
  * Time: 1:21 PM
  */
 /* set $debug to present $_POST array debugging*/
-//$debug = 1;
+$debug = 1;
 if (!isset($_COOKIE['username'])) {
     echo 'please login to continue';
     include INC_ROOT . 'lib/logon.php';
@@ -26,8 +26,10 @@ else {
         else {
             include INC_ROOT . 'bin/sqlConnector.php';
             $user = sanitize($_COOKIE['UID'], null);
-            $sql = "INSERT INTO orders (CustomerID,	OrderDate)
-        VALUES ('$user', NOW())";
+            $shipping = $_POST['cshipping'];
+            echo $shipping;
+            $sql = "INSERT INTO orders (CustomerID,	OrderDate, ShipCost)
+        VALUES ('$user', NOW(), '$shipping')";
             try {
                 $handler->query($sql);
                 $alert = 1;
@@ -35,6 +37,9 @@ else {
                 $text = "You have successfully registered!";
                 $_SESSION['cartSubmitted'] = 1;
             } catch (PDOException $e) {
+                /*remove */
+                echo $e->getMessage();
+
                 $alert = 1;
                 $type = "alert-danger text-danger alert-dismissible";
                 $text = $e->getMessage();
