@@ -76,7 +76,6 @@ function chkPassword($username, $password) {
 
     }
 
-
 }
 
 function login($username,$success, $handler, $time)
@@ -333,6 +332,58 @@ function getTotalOrders($uid) {
     return $value;
 
 }
+function getTotalOrderItems($orderID) {
+    include INC_ROOT . 'bin/sqlConnector.php';
+
+    try {
+        $query = $handler->query("SELECT * FROM order_details WHERE OrderID='$orderID'");
+    }
+    catch(PDOException $e){
+        echo $e;
+    }
+    $value = 0;
+    while ($r = $query->fetch()) {
+        if ($orderID == $r['OrderID']) {
+            $value++;
+            //echo $value;
+        }
+        else {
+        }
+    }
+    return $value;
+
+}
+function getTotalOrderCost($orderID, $shipping) {
+    setlocale(LC_MONETARY,"en_US");
+    $itemSalesTax = 0.06;
+    include INC_ROOT . 'bin/sqlConnector.php';
+
+    try {
+        $query = $handler->query("SELECT * FROM order_details WHERE OrderID='$orderID'");
+    }
+    catch(PDOException $e){
+        echo $e;
+    }
+    $value = 0;
+    while ($r = $query->fetch()) {
+        if ($orderID == $r['OrderID']) {
+            $itemQty = $r['Quantity'];
+            $itemPrice = $r['UnitPrice'];
+            $itemCost = $itemQty*$itemPrice+$value;
+            $value = $itemCost;
+
+        }
+
+        else {
+        }
+    }
+    $taxable = $value*$itemSalesTax;
+    $value = $value+$taxable+$shipping;
+    return money_format("%.2n", $value);
+    //return money_format("%=*(#10.2n",$value);
+
+}
+
 function getOrders($uid) {
     include INC_ROOT . 'bin/sqlConnector.php';
     try {
@@ -367,13 +418,20 @@ function getOrders($uid) {
             echo "       <td>\n";
             echo          $r['OrderDate']."\n";
             echo "       </td>\n";
+            echo "       </td>\n";
+            echo "       <td>\n";
+            $orderID = $r['OrderID'];
+            echo getTotalOrderItems($orderID);
+            echo "       </td>\n";
+            echo "       <td>\n";
+            $shipping = $r['ShipCost'];
+            echo getTotalOrderCost($orderID, $shipping);
+            echo "       </td>\n";
             echo "    </tr>\n";
-
         }
         else {
         }
     }
-
+    echo "    </tr>\n";
     return;
-
 }

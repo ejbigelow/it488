@@ -1,10 +1,10 @@
 
 <!-- Carousel Header -->
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel" xmlns="http://www.w3.org/1999/html">
+<div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 700px; margin: 0 auto" xmlns="http://www.w3.org/1999/html">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="0" class="active" ></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
         <li data-target="#myCarousel" data-slide-to="3"></li>

@@ -17,11 +17,13 @@ $inc = getTotalOrders($uid);
     });
 
 </script>
-<table border="1" width="100%">
+<table width="100%">
     <tr>
-        <th width="33%" class="text-center">Order number</th>
-        <th width="33%" class="text-center">Name</th>
-        <th width="33%" class="text-center">Order date</th>
+        <th class="text-center">Order number</th>
+        <th class="text-center">Name</th>
+        <th class="text-center">Order date</th>
+        <th class="text-center">Total items</th>
+        <th class="text-center">Total Cost</th>
     </tr>
     <?php
 
