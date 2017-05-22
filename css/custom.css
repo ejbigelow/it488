@@ -68,17 +68,10 @@ height: 10px;
 .tableRowHighlight:hover {
   background-color: blue;
 }
-/*http://freshome.com/2010/08/23/crazy-overgrown-household-items-from-robert-therrien/*/
-.block1 {
-  background-image: url("http://67.253.94.5/it488/img/household-1.jpg") ;
-
+.downloadli {
+  list-style-type: none;
+  display: inline-block;
 }
-/*http://www.helloshoppee.com/*/
-.block2 {
-  background-image: url("http://67.253.94.5/it488/img/electronics-1.jpg");
-}
-/*https://blog.bedbathandbeyond.com/2016/04/7-items-give-patio-great-summer-style/*/
-.block3 {
-  background-image: url("http://67.253.94.5/it488/img/outdoor-1.jpg");
-
+.downloadul {
+  list-style-type: none;
 }
