@@ -51,13 +51,7 @@ include INC_ROOT . 'bin/highlink.php';
                 <span class="icon-bar"></span>
             </button>
             <?php
-            if (isset($_COOKIE['name'])) {
-                echo "<a href=\"index.php\" class=\"navbar-brand hidden-sm\">".$_COOKIE['name']."</a>";
-
-            }
-            else {
-                echo "<a href=\"index.php\" class=\"navbar-brand hidden-sm\">ORDERS.COM</a>";
-            }
+                echo "<a href=\"index.php\" class=\"navbar-brand hidden-sm\">ORDERS.COM(DEMO)</a>";
             ?>
 
         </div>
@@ -69,7 +63,7 @@ include INC_ROOT . 'bin/highlink.php';
                 <?php echo $privacy;?><a href="index.php?page=privacy">Privacy</a></li>
                 <?php echo $catalogue;?><a href="index.php?page=catalogue">Catalogue</a></li>
                 <?php echo $events; ?><a href="index.php?page=events">Events</a></li>
-                <?php echo $help; ?><a href="index.php?page=help">Help</a></li>
+                <?php echo $help; ?><a href="index.php?page=download">Download code</a></li>
                 <?php if (isset($_SESSION['item1'])) {
                     echo "<li><a href='index.php?page=checkout'>View cart</a></li>";
                 }
@@ -88,7 +82,7 @@ include INC_ROOT . 'bin/highlink.php';
                 <!--User Sign-up/ Orders link -->
                 <?php
                 if (isset($_COOKIE['name']) && $_COOKIE['userLevel'] < 5) {
-                    echo "<li><a data-toggle=\"modal\" href=\"index.php?page=orders\"><span class=\"hidden-sm\"></span>Orders</a></li>";
+                    echo $orders. "<a data-toggle=\"modal\" href=\"index.php?page=orders\"><span class=\"hidden-sm\"></span>Orders</a></li>";
                 }
                 elseif (isset($_COOKIE['name']) && $_COOKIE['userLevel'] == 5) {
                     echo "<li class=\"dropdown\">";

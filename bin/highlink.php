@@ -6,7 +6,8 @@ $pages = array(
     "about",
     "privacy",
     "catalogue",
-    "events"
+    "events",
+    "orders"
 );
 $found = 0;
 if (isset($_GET['page'])) {
@@ -29,6 +30,7 @@ if (isset($_GET['page'])) {
             $catalogue = "<li>";
             $events = "<li>";
             $help="<li>";
+            $orders = "<li>";
             $title = "About";
             break;
         case Contact:
@@ -39,6 +41,7 @@ if (isset($_GET['page'])) {
             $catalogue = "<li>";
             $events = "<li>";
             $help="<li>";
+            $orders = "<li>";
             break;
         case privacy;
             $home = "<li>";
@@ -48,6 +51,7 @@ if (isset($_GET['page'])) {
             $catalogue = "<li>";
             $events = "<li>";
             $help="<li>";
+            $orders = "<li>";
             break;
         case catalogue;
             $home = "<li>";
@@ -57,6 +61,7 @@ if (isset($_GET['page'])) {
             $catalogue="<li class=\"active\">";
             $events = "<li>";
             $help="<li>";
+            $orders = "<li>";
             break;
         case prayers;
             $home = "<li>";
@@ -66,6 +71,7 @@ if (isset($_GET['page'])) {
             $catalogue = "<li>";
             $events = "<li>";
             $help="<li>";
+            $orders = "<li>";
             break;
         case events;
             $home = "<li>";
@@ -75,6 +81,7 @@ if (isset($_GET['page'])) {
             $catalogue = "<li>";
             $events="<li class=\"active\">";
             $help="<li>";
+            $orders = "<li>";
             break;
         case help;
             $home = "<li>";
@@ -84,6 +91,18 @@ if (isset($_GET['page'])) {
             $catalogue = "<li>";
             $events="<li>";
             $help="<li class=\"active\">";
+            $orders = "<li>";
+
+            break;
+        case orders;
+            $home = "<li>";
+            $about = "<li>";
+            $contact = "<li>";
+            $privacy = "<li>";
+            $catalogue = "<li>";
+            $events="<li>";
+            $help="<li>";
+            $orders = "<li class=\"active\">";
 
             break;
         /*default*/
@@ -95,6 +114,7 @@ if (isset($_GET['page'])) {
             $catalogue = "<li>";
             $events = "<li>";
             $help="<li>";
+            $orders = "<li>";
     }
 }
 else {
@@ -105,6 +125,8 @@ else {
     $catalogue = "<li>";
     $events = "<li>";
     $help="<li>";
+    $orders = "<li>";
+
 }
 
 ?>
