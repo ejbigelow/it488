@@ -2,7 +2,9 @@
 <hr />
 <?php
 if (isset($_GET['orderID'])) {
-    echo 'looking at order: '. $_GET['orderID'];
+    session_destroy();
+    $orderID = sanitize($_GET['orderID'], null);
+    include 'order.inc';
 }
 else {
 $uid = sanitize($_COOKIE['UID'], null);

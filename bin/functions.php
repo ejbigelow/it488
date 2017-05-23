@@ -307,7 +307,7 @@ function insertOrderItems($order, $item, $itemPrice){
         $text = $e->getMessage();
     }
 
-return;
+    return;
 
 }
 
@@ -433,5 +433,29 @@ function getOrders($uid) {
         }
     }
     echo "    </tr>\n";
+    return;
+}
+function recallOrderDetails($orderID){
+    $orderID = $orderID;
+    include INC_ROOT . 'bin/sqlConnector.php';
+
+
+    try {
+        $query = $handler->query("SELECT * FROM order_details WHERE orderID='$orderID'");
+    }
+    catch(PDOException $e){
+        echo $e;
+    }
+    while ($r = $query->fetch()) {
+        if ($orderID == $r['OrderID']) {
+            echo "<tr class='text-center'>\n";
+            echo "<td><img class='img-responsive' src='bin/image.php?imgID=".getItem($r['ProductID'], img)."' alt='sample img' width='100px'/></td>\n";
+            echo "<td>".getItem($r['ProductID'], name)."</td>\n";
+            echo "<td>".$r['Quantity']."</td>\n";
+            echo "<td>$".money_format("%.2n", $r['UnitPrice'])."</td>\n";
+            echo "</tr>\n";
+        }
+    }
+    echo "</table>\n";
     return;
 }
