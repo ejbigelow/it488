@@ -10,9 +10,9 @@
 
 <p> please note this package is provided in many compressed formats. To use the code download the compressed file of your
     choice. After downloading the source it will be necessary to download the zip or tarball of the SQL code as well.</p>
-
+<h4>Orders.com source files.</h4>
 <ul>
-    <li class="downloadul">Orders.com source files.</li>
+    <li class="downloadli">Download from <a href="https://github.com/ejbigelow/it488" target="_blank">Github</a></li>
     <ul>
         <li class="downloadli"><a href="download/Orders.com_source_code.zip">zip</a></li>
         <li class="downloadli"><a href="download/Orders.com_source_code.rar">rar</a></li>

@@ -5,10 +5,19 @@
  * Date: 4/17/17
  * Time: 1:40 PM
  */
+if (($_GET['page'] == 'checkout')&& ($noLogin == 1)) {
+    $style="my-login-form-lg";
+    unset($noLogin);
+}
+else {
+    $style="my-login-form";
+    $noLogin=1;
+
+}
 ?>
 <form class="form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" accept-charset="UTF-8" id="login-nav">
    <input type="hidden" name="logon" />
-<div class="my-login-form">
+<div class="<?php echo $style ?>">
     <h4>Sign In</h4>
     <hr />
     <!-- Username -->

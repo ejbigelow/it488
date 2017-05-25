@@ -36,6 +36,12 @@ body {
   padding: 4px;
   padding-bottom: 2px;
 }
+.my-login-form-lg {
+  background-color: tan;
+  width: 500px;
+  padding: 4px;
+  padding-bottom: 2px;
+}
 .my-login-item  {
   padding-top: 8px;
 }
